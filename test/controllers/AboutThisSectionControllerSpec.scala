@@ -17,37 +17,37 @@
 package controllers
 
 import base.SpecBase
+import models.NormalMode
 import org.mockito.ArgumentCaptor
-import org.mockito.Mockito._
 import org.mockito.Matchers.any
+import org.mockito.Mockito.{times, verify, when}
+import org.scalatestplus.mockito.MockitoSugar
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import play.twirl.api.Html
 
 import scala.concurrent.Future
 
-class IndexControllerSpec extends SpecBase {
+class AboutThisSectionControllerSpec extends SpecBase with MockitoSugar {
 
-  "Index Controller" - {
+  "AboutThisSection Controller" - {
 
-    "must return OK and the correct view for a GET" in {
+    "return OK and the correct view for a GET" in {
 
       when(mockRenderer.render(any(), any())(any()))
-        .thenReturn(Future.successful(Html("foo")))
+        .thenReturn(Future.successful(Html("")))
 
-      val application = applicationBuilder(userAnswers = None).build()
-
-      val request = FakeRequest(GET, routes.IndexController.onPageLoad().url)
+      val application = applicationBuilder(userAnswers = Some(emptyUserAnswers)).build()
+      val request = FakeRequest(GET, routes.AboutThisSectionController.onPageLoad().url)
+      val templateCaptor = ArgumentCaptor.forClass(classOf[String])
 
       val result = route(application, request).value
 
       status(result) mustEqual OK
 
-      val templateCaptor = ArgumentCaptor.forClass(classOf[String])
-
       verify(mockRenderer, times(1)).render(templateCaptor.capture(), any())(any())
 
-      templateCaptor.getValue mustEqual "index.njk"
+      templateCaptor.getValue mustEqual "aboutThisSection.njk"
 
       application.stop()
     }

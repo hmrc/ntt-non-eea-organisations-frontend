@@ -16,22 +16,42 @@
 
 package controllers
 
+import controllers.actions._
 import javax.inject.Inject
-import play.api.i18n.I18nSupport
+import models.{NormalMode, UserAnswers}
+import navigation.Navigator
+import pages.AboutThisSectionPage
+import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import renderer.Renderer
+import repositories.SessionRepository
 import uk.gov.hmrc.play.bootstrap.controller.FrontendBaseController
 
 import scala.concurrent.ExecutionContext
 
-class AccessibilityController @Inject()(
+class AboutThisSectionController @Inject()(
+    override val messagesApi: MessagesApi,
+    identify: IdentifierAction,
+    getData: DataRetrievalAction,
+    requireData: DataRequiredAction,
     val controllerComponents: MessagesControllerComponents,
-    renderer: Renderer
+    renderer: Renderer,
+    navigator:Navigator,
+    sessionRepository: SessionRepository
 )(implicit ec: ExecutionContext) extends FrontendBaseController with I18nSupport {
 
-  def onPageLoad: Action[AnyContent] = Action.async {
+  def onPageLoad: Action[AnyContent] = (identify andThen getData andThen requireData).async {
     implicit request =>
 
-      renderer.render("accessibility.njk").map(Ok(_))
+      renderer.render("aboutThisSection.njk").map(Ok(_))
+  }
+
+  def onSubmit : Action[AnyContent] = (identify andThen getData).async {
+    implicit request =>
+      val answers = UserAnswers(request.internalId)
+      for {
+        _              <- sessionRepository.set(answers)
+      } yield Redirect(navigator.nextPage(AboutThisSectionPage, NormalMode, answers))
+
   }
 }

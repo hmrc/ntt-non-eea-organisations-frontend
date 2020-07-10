@@ -14,24 +14,16 @@
  * limitations under the License.
  */
 
-package forms.behaviours
+package navigation
 
-import play.api.data.{Form, FormError}
+import controllers.routes
+import models.UserAnswers
+import pages.{IndexPage, Page}
+import play.api.mvc.Call
 
-trait StringFieldBehaviours extends FieldBehaviours {
-
-    def fieldWithMaxLength(form: Form[_],
-                           fieldName: String,
-                           maxLength: Int,
-                           lengthError: FormError): Unit = {
-
-    s"must not bind strings longer than $maxLength characters" in {
-
-      forAll(stringsLongerThan(maxLength) -> "longString") {
-        string =>
-          val result = form.bind(Map(fieldName -> string)).apply(fieldName)
-          result.errors shouldEqual Seq(lengthError)
-      }
-    }
+object NormalRoutes {
+  val routeMap: Page => UserAnswers => Call = {
+    case IndexPage    => _ => routes.AboutThisSectionController.onPageLoad()
+    case _            => _ => routes.IndexController.onPageLoad()
   }
 }

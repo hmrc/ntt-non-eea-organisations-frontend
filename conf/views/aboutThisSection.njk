@@ -1,10 +1,10 @@
 {% extends "includes/layout.njk" %}
-
-{% from "macros/title.njk"                         import title %}
 {% from "govuk/components/button/macro.njk"        import govukButton %}
 
+{% from "macros/title.njk"                         import title %}
+
 {% block pageTitle %}
-  {{ title(messages("index.title")) }}
+  {{ title(messages("aboutThisSection.title")) }}
 {% endblock %}
 
 {% block mainContent %}
@@ -14,10 +14,10 @@
       <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-xl">
-          {{ messages("index.heading") }}
+          {{ messages("aboutThisSection.heading") }}
         </h1>
 
-       <form action="{{routes.controllers.IndexController.onSubmit.url}}" method="post">
+       <form action="{{routes.controllers.AboutThisSectionContoller.onSubmit.url}}" method="post">
 
             {{ csrf() | safe }}
 
