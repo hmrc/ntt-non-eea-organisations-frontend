@@ -27,3 +27,8 @@ GET        /whatIsTheCompanyName                        controllers.WhatIsTheCom
 POST       /whatIsTheCompanyName                        controllers.WhatIsTheCompanyNameController.onSubmit(mode: Mode = NormalMode)
 GET        /changeWhatIsTheCompanyName                  controllers.WhatIsTheCompanyNameController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeWhatIsTheCompanyName                  controllers.WhatIsTheCompanyNameController.onSubmit(mode: Mode = CheckMode)
+
+GET        /isTheHeadOfficeLocationKnown                        controllers.IsTheHeadOfficeLocationKnownController.onPageLoad(mode: Mode = NormalMode)
+POST       /isTheHeadOfficeLocationKnown                        controllers.IsTheHeadOfficeLocationKnownController.onSubmit(mode: Mode = NormalMode)
+GET        /changeIsTheHeadOfficeLocationKnown                  controllers.IsTheHeadOfficeLocationKnownController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeIsTheHeadOfficeLocationKnown                  controllers.IsTheHeadOfficeLocationKnownController.onSubmit(mode: Mode = CheckMode)

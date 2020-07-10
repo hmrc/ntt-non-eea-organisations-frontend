@@ -143,3 +143,8 @@ whatIsTheCompanyName.heading = What is the company name?
 whatIsTheCompanyName.checkYourAnswersLabel = What is the company name?
 whatIsTheCompanyName.error.required = Enter the company name
 whatIsTheCompanyName.error.length = Company name must be 100 characters or less
+
+isTheHeadOfficeLocationKnown.title = Is the head office location known?
+isTheHeadOfficeLocationKnown.heading = Is the head office location known?
+isTheHeadOfficeLocationKnown.checkYourAnswersLabel = Is the head office location known?
+isTheHeadOfficeLocationKnown.error.required = Select yes if the head office location is known

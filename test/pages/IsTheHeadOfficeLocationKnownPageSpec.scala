@@ -14,19 +14,18 @@
  * limitations under the License.
  */
 
-package generators
+package pages
 
-import org.scalacheck.Arbitrary
-import pages._
+import pages.behaviours.PageBehaviours
 
-trait PageGenerators {
+class IsTheHeadOfficeLocationKnownPageSpec extends PageBehaviours {
 
-  implicit lazy val arbitraryIsTheHeadOfficeLocationKnownPage: Arbitrary[IsTheHeadOfficeLocationKnownPage.type] =
-    Arbitrary(IsTheHeadOfficeLocationKnownPage)
+  "IsTheHeadOfficeLocationKnownPage" - {
 
-  implicit lazy val arbitraryWhatIsTheCompanyNamePage: Arbitrary[WhatIsTheCompanyNamePage.type] =
-    Arbitrary(WhatIsTheCompanyNamePage)
+    beRetrievable[Boolean](IsTheHeadOfficeLocationKnownPage)
 
-  implicit lazy val arbitraryDoNonEEAOrgsHaveControllingInterestPage: Arbitrary[DoNonEEAOrgsHaveControllingInterestPage.type] =
-    Arbitrary(DoNonEEAOrgsHaveControllingInterestPage)
+    beSettable[Boolean](IsTheHeadOfficeLocationKnownPage)
+
+    beRemovable[Boolean](IsTheHeadOfficeLocationKnownPage)
+  }
 }

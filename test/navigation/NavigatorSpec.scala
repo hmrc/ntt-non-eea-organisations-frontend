@@ -67,6 +67,14 @@ class NavigatorSpec extends SpecBase with ScalaCheckPropertyChecks with Generato
               .mustBe(routes.WhatIsTheCompanyNameController.onPageLoad(NormalMode))
         }
       }
+
+      "must go from What is the company name page to Is the head office location known page" in {
+        forAll(arbitrary[UserAnswers]) {
+          answers =>
+            navigator.nextPage(WhatIsTheCompanyNamePage, NormalMode, answers)
+              .mustBe(routes.IsTheHeadOfficeLocationKnownController.onPageLoad(NormalMode))
+        }
+      }
     }
 
     "in Check mode" - {

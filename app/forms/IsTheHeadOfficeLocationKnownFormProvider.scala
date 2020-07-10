@@ -14,19 +14,17 @@
  * limitations under the License.
  */
 
-package generators
+package forms
 
-import org.scalacheck.Arbitrary
-import pages._
+import javax.inject.Inject
 
-trait PageGenerators {
+import forms.mappings.Mappings
+import play.api.data.Form
 
-  implicit lazy val arbitraryIsTheHeadOfficeLocationKnownPage: Arbitrary[IsTheHeadOfficeLocationKnownPage.type] =
-    Arbitrary(IsTheHeadOfficeLocationKnownPage)
+class IsTheHeadOfficeLocationKnownFormProvider @Inject() extends Mappings {
 
-  implicit lazy val arbitraryWhatIsTheCompanyNamePage: Arbitrary[WhatIsTheCompanyNamePage.type] =
-    Arbitrary(WhatIsTheCompanyNamePage)
-
-  implicit lazy val arbitraryDoNonEEAOrgsHaveControllingInterestPage: Arbitrary[DoNonEEAOrgsHaveControllingInterestPage.type] =
-    Arbitrary(DoNonEEAOrgsHaveControllingInterestPage)
+  def apply(): Form[Boolean] =
+    Form(
+      "value" -> boolean("isTheHeadOfficeLocationKnown.error.required")
+    )
 }

@@ -18,7 +18,7 @@ package navigation
 
 import controllers.routes
 import models.{NormalMode, UserAnswers}
-import pages.{AboutThisSectionPage, DoNonEEAOrgsHaveControllingInterestPage, IndexPage, Page}
+import pages.{AboutThisSectionPage, DoNonEEAOrgsHaveControllingInterestPage, IndexPage, Page, WhatIsTheCompanyNamePage}
 import play.api.mvc.Call
 
 object NormalRoutes {
@@ -26,6 +26,7 @@ object NormalRoutes {
     case IndexPage                                  => _ => routes.AboutThisSectionController.onPageLoad()
     case AboutThisSectionPage                       => _ => routes.DoNonEEAOrgsHaveControllingInterestController.onPageLoad(NormalMode)
     case DoNonEEAOrgsHaveControllingInterestPage    => _ => routes.WhatIsTheCompanyNameController.onPageLoad(NormalMode)
+    case WhatIsTheCompanyNamePage                   => _ => routes.IsTheHeadOfficeLocationKnownController.onPageLoad(NormalMode)
     case _                                          => _ => routes.IndexController.onPageLoad()
   }
 }
