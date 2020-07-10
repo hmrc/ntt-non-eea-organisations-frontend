@@ -14,16 +14,19 @@
  * limitations under the License.
  */
 
-package generators
+package pages
 
-import org.scalacheck.Arbitrary
-import pages._
+import pages.behaviours.PageBehaviours
 
-trait PageGenerators {
 
-  implicit lazy val arbitraryWhatIsTheCompanyNamePage: Arbitrary[WhatIsTheCompanyNamePage.type] =
-    Arbitrary(WhatIsTheCompanyNamePage)
+class WhatIsTheCompanyNamePageSpec extends PageBehaviours {
 
-  implicit lazy val arbitraryDoNonEEAOrgsHaveControllingInterestPage: Arbitrary[DoNonEEAOrgsHaveControllingInterestPage.type] =
-    Arbitrary(DoNonEEAOrgsHaveControllingInterestPage)
+  "WhatIsTheCompanyNamePage" - {
+
+    beRetrievable[String](WhatIsTheCompanyNamePage)
+
+    beSettable[String](WhatIsTheCompanyNamePage)
+
+    beRemovable[String](WhatIsTheCompanyNamePage)
+  }
 }

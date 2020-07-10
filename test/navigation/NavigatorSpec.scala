@@ -45,22 +45,26 @@ class NavigatorSpec extends SpecBase with ScalaCheckPropertyChecks with Generato
       }
 
       "must go from Index to About this section page" in {
-
         forAll(arbitrary[UserAnswers]) {
           answers =>
-
             navigator.nextPage(IndexPage, NormalMode, answers)
               .mustBe(routes.AboutThisSectionController.onPageLoad())
         }
       }
 
       "must go from About this section page to Do Non-EEA Orgs Have Controlling Interest" in {
-
         forAll(arbitrary[UserAnswers]) {
           answers =>
-
             navigator.nextPage(AboutThisSectionPage, NormalMode, answers)
               .mustBe(routes.DoNonEEAOrgsHaveControllingInterestController.onPageLoad(NormalMode))
+        }
+      }
+
+      "must go from Do Non-EEA Orgs Have Controlling Interest to What is the company name page" in {
+        forAll(arbitrary[UserAnswers]) {
+          answers =>
+            navigator.nextPage(DoNonEEAOrgsHaveControllingInterestPage, NormalMode, answers)
+              .mustBe(routes.WhatIsTheCompanyNameController.onPageLoad(NormalMode))
         }
       }
     }

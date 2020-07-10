@@ -137,3 +137,9 @@ doNonEEAOrgsHaveControllingInterest.title = Does the trust have a controlling in
 doNonEEAOrgsHaveControllingInterest.heading = Does the trust have a controlling interest in any organisations outside of the European Economic area (EEA)?
 doNonEEAOrgsHaveControllingInterest.checkYourAnswersLabel = Does the trust have a controlling interest in any organisations outside of the European Economic area (EEA)?
 doNonEEAOrgsHaveControllingInterest.error.required = Select yes if the trust has a controlling interest in any organisations outside of the European Economic area (EEA)
+
+whatIsTheCompanyName.title = What is the company name?
+whatIsTheCompanyName.heading = What is the company name?
+whatIsTheCompanyName.checkYourAnswersLabel = What is the company name?
+whatIsTheCompanyName.error.required = Enter the company name
+whatIsTheCompanyName.error.length = Company name must be 100 characters or less

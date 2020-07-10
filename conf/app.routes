@@ -22,3 +22,8 @@ GET        /doNonEEAOrgsHaveControllingInterest                        controlle
 POST       /doNonEEAOrgsHaveControllingInterest                        controllers.DoNonEEAOrgsHaveControllingInterestController.onSubmit(mode: Mode = NormalMode)
 GET        /changeDoNonEEAOrgsHaveControllingInterest                  controllers.DoNonEEAOrgsHaveControllingInterestController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeDoNonEEAOrgsHaveControllingInterest                  controllers.DoNonEEAOrgsHaveControllingInterestController.onSubmit(mode: Mode = CheckMode)
+
+GET        /whatIsTheCompanyName                        controllers.WhatIsTheCompanyNameController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatIsTheCompanyName                        controllers.WhatIsTheCompanyNameController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatIsTheCompanyName                  controllers.WhatIsTheCompanyNameController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatIsTheCompanyName                  controllers.WhatIsTheCompanyNameController.onSubmit(mode: Mode = CheckMode)
