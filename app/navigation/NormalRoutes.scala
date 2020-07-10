@@ -17,13 +17,14 @@
 package navigation
 
 import controllers.routes
-import models.UserAnswers
-import pages.{IndexPage, Page}
+import models.{NormalMode, UserAnswers}
+import pages.{AboutThisSectionPage, IndexPage, Page}
 import play.api.mvc.Call
 
 object NormalRoutes {
   val routeMap: Page => UserAnswers => Call = {
-    case IndexPage    => _ => routes.AboutThisSectionController.onPageLoad()
-    case _            => _ => routes.IndexController.onPageLoad()
+    case IndexPage                  => _ => routes.AboutThisSectionController.onPageLoad()
+    case AboutThisSectionPage       => _ => routes.DoNonEEAOrgsHaveControllingInterestController.onPageLoad(NormalMode)
+    case _                          => _ => routes.IndexController.onPageLoad()
   }
 }

@@ -17,3 +17,8 @@ GET        /accessibility-statement                     controllers.Accessibilit
 
 GET        /aboutThisSection                            controllers.AboutThisSectionController.onPageLoad()
 POST       /aboutThisSection                            controllers.AboutThisSectionController.onSubmit
+
+GET        /doNonEEAOrgsHaveControllingInterest                        controllers.DoNonEEAOrgsHaveControllingInterestController.onPageLoad(mode: Mode = NormalMode)
+POST       /doNonEEAOrgsHaveControllingInterest                        controllers.DoNonEEAOrgsHaveControllingInterestController.onSubmit(mode: Mode = NormalMode)
+GET        /changeDoNonEEAOrgsHaveControllingInterest                  controllers.DoNonEEAOrgsHaveControllingInterestController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeDoNonEEAOrgsHaveControllingInterest                  controllers.DoNonEEAOrgsHaveControllingInterestController.onSubmit(mode: Mode = CheckMode)

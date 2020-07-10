@@ -14,13 +14,18 @@
  * limitations under the License.
  */
 
-package generators
+package pages
 
-import org.scalacheck.Arbitrary
-import pages._
+import pages.behaviours.PageBehaviours
 
-trait PageGenerators {
+class DoNonEEAOrgsHaveControllingInterestPageSpec extends PageBehaviours {
 
-  implicit lazy val arbitraryDoNonEEAOrgsHaveControllingInterestPage: Arbitrary[DoNonEEAOrgsHaveControllingInterestPage.type] =
-    Arbitrary(DoNonEEAOrgsHaveControllingInterestPage)
+  "DoNonEEAOrgsHaveControllingInterestPage" - {
+
+    beRetrievable[Boolean](DoNonEEAOrgsHaveControllingInterestPage)
+
+    beSettable[Boolean](DoNonEEAOrgsHaveControllingInterestPage)
+
+    beRemovable[Boolean](DoNonEEAOrgsHaveControllingInterestPage)
+  }
 }

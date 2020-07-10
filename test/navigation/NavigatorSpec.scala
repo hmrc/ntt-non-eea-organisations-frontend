@@ -53,6 +53,16 @@ class NavigatorSpec extends SpecBase with ScalaCheckPropertyChecks with Generato
               .mustBe(routes.AboutThisSectionController.onPageLoad())
         }
       }
+
+      "must go from About this section page to Do Non-EEA Orgs Have Controlling Interest" in {
+
+        forAll(arbitrary[UserAnswers]) {
+          answers =>
+
+            navigator.nextPage(AboutThisSectionPage, NormalMode, answers)
+              .mustBe(routes.DoNonEEAOrgsHaveControllingInterestController.onPageLoad(NormalMode))
+        }
+      }
     }
 
     "in Check mode" - {

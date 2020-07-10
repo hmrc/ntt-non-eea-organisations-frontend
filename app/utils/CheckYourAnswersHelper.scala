@@ -29,6 +29,21 @@ import uk.gov.hmrc.viewmodels.Text.Literal
 
 class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messages) {
 
+  def doNonEEAOrgsHaveControllingInterest: Option[Row] = userAnswers.get(DoNonEEAOrgsHaveControllingInterestPage) map {
+    answer =>
+      Row(
+        key     = Key(msg"doNonEEAOrgsHaveControllingInterest.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
+        value   = Value(yesOrNo(answer)),
+        actions = List(
+          Action(
+            content            = msg"site.edit",
+            href               = routes.DoNonEEAOrgsHaveControllingInterestController.onPageLoad(CheckMode).url,
+            visuallyHiddenText = Some(msg"site.edit.hidden".withArgs(msg"doNonEEAOrgsHaveControllingInterest.checkYourAnswersLabel"))
+          )
+        )
+      )
+  }
+
   private def yesOrNo(answer: Boolean): Content =
     if (answer) {
       msg"site.yes"
