@@ -21,6 +21,9 @@ import pages._
 
 trait PageGenerators {
 
+  implicit lazy val arbitraryWhatIsHeadOfficeAddressWithCountryPickerPage: Arbitrary[WhatIsHeadOfficeAddressWithCountryPickerPage.type] =
+    Arbitrary(WhatIsHeadOfficeAddressWithCountryPickerPage)
+
   implicit lazy val arbitraryIsTheHeadOfficeLocationKnownPage: Arbitrary[IsTheHeadOfficeLocationKnownPage.type] =
     Arbitrary(IsTheHeadOfficeLocationKnownPage)
 

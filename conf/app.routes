@@ -32,3 +32,8 @@ GET        /isTheHeadOfficeLocationKnown                        controllers.IsTh
 POST       /isTheHeadOfficeLocationKnown                        controllers.IsTheHeadOfficeLocationKnownController.onSubmit(mode: Mode = NormalMode)
 GET        /changeIsTheHeadOfficeLocationKnown                  controllers.IsTheHeadOfficeLocationKnownController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeIsTheHeadOfficeLocationKnown                  controllers.IsTheHeadOfficeLocationKnownController.onSubmit(mode: Mode = CheckMode)
+
+GET        /whatIsHeadOfficeAddressWithCountryPicker                        controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatIsHeadOfficeAddressWithCountryPicker                        controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatIsHeadOfficeAddressWithCountryPicker                  controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatIsHeadOfficeAddressWithCountryPicker                  controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onSubmit(mode: Mode = CheckMode)

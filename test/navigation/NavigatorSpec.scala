@@ -75,6 +75,15 @@ class NavigatorSpec extends SpecBase with ScalaCheckPropertyChecks with Generato
               .mustBe(routes.IsTheHeadOfficeLocationKnownController.onPageLoad(NormalMode))
         }
       }
+
+      "must go from Is the head office location known page to Head office address with country picker" in {
+        forAll(arbitrary[UserAnswers]) {
+          answers =>
+            navigator.nextPage(IsTheHeadOfficeLocationKnownPage, NormalMode, answers)
+              .mustBe(routes.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(NormalMode))
+        }
+      }
+
     }
 
     "in Check mode" - {
