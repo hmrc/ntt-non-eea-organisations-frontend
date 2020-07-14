@@ -178,3 +178,9 @@ isTheGoverningCountryKnown.title = Is the governing country/territory known?
 isTheGoverningCountryKnown.heading = Is the governing country/territory known?
 isTheGoverningCountryKnown.checkYourAnswersLabel = Is the governing country/territory known?
 isTheGoverningCountryKnown.error.required = Select yes if governing country/territory is known
+
+whatIsTheGoverningCountry.title = What is the governing country/territory?
+whatIsTheGoverningCountry.heading = What is the governing country/territory?
+whatIsTheGoverningCountry.checkYourAnswersLabel = What is the governing country/territory?
+whatIsTheGoverningCountry.error.required = Enter the governing country/territory
+whatIsTheGoverningCountry.error.length = The governing country/territory must be 100 characters or less

@@ -99,6 +99,14 @@ class NavigatorSpec extends SpecBase with ScalaCheckPropertyChecks with Generato
               .mustBe(routes.IsTheGoverningCountryKnownController.onPageLoad(NormalMode))
         }
       }
+      "must go from Is governing country known to what is governing country?" in {
+        forAll(arbitrary[UserAnswers]) {
+          answers =>
+            navigator.nextPage(IsTheGoverningCountryKnownPage, NormalMode, answers)
+              .mustBe(routes.WhatIsTheGoverningCountryController.onPageLoad(NormalMode))
+        }
+      }
+
     }
 
     "in Check mode" - {

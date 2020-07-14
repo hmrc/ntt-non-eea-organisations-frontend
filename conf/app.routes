@@ -47,3 +47,8 @@ GET        /isTheGoverningCountryKnown                        controllers.IsTheG
 POST       /isTheGoverningCountryKnown                        controllers.IsTheGoverningCountryKnownController.onSubmit(mode: Mode = NormalMode)
 GET        /changeIsTheGoverningCountryKnown                  controllers.IsTheGoverningCountryKnownController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeIsTheGoverningCountryKnown                  controllers.IsTheGoverningCountryKnownController.onSubmit(mode: Mode = CheckMode)
+
+GET        /whatIsTheGoverningCountry                        controllers.WhatIsTheGoverningCountryController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatIsTheGoverningCountry                        controllers.WhatIsTheGoverningCountryController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatIsTheGoverningCountry                  controllers.WhatIsTheGoverningCountryController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatIsTheGoverningCountry                  controllers.WhatIsTheGoverningCountryController.onSubmit(mode: Mode = CheckMode)
