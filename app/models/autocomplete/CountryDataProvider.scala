@@ -44,10 +44,7 @@ class GovUkCountryDataProvider @Inject()(env: Environment, config: FrontendAppCo
     Json.parse(Source.fromInputStream(stream).mkString).as[Set[String]]).getOrElse(Set.empty)
 
   lazy val json: Option[JsValue] = env.resourceAsStream(countriesPath) map { stream =>
-    val check = Source.fromInputStream(stream).mkString
-    println("“ACHI: " + check)
-    //Json.parse(Source.fromInputStream(stream).mkString)
-    Json.parse(check)
+    Json.parse(Source.fromInputStream(stream).mkString)
   }
 
   override def fetch: Option[Seq[NameValuePair]] = json map { j =>
