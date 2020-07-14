@@ -14,19 +14,14 @@
  * limitations under the License.
  */
 
-package generators
+package pages
 
-import models._
-import org.scalacheck.Arbitrary.arbitrary
-import org.scalacheck.{Arbitrary, Gen}
+import models.{UkAddress, WhatIsHeadOfficeAddressWithPostcode}
+import play.api.libs.json.JsPath
 
-trait ModelGenerators {
+case object WhatIsHeadOfficeAddressWithPostcodePage extends QuestionPage[UkAddress] {
 
-  implicit lazy val arbitraryWhatIsHeadOfficeAddressWithPostcode: Arbitrary[WhatIsHeadOfficeAddressWithPostcode] =
-    Arbitrary {
-      for {
-        AddressLineOne <- arbitrary[String]
-        AddressLineTwo <- arbitrary[String]
-      } yield WhatIsHeadOfficeAddressWithPostcode(AddressLineOne, AddressLineTwo)
-    }
+  override def path: JsPath = JsPath \ toString
+
+  override def toString: String = "whatIsHeadOfficeAddressWithPostcode"
 }

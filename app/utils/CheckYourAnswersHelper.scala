@@ -19,7 +19,7 @@ package utils
 import java.time.format.DateTimeFormatter
 
 import controllers.routes
-import models.{CheckMode, UserAnswers}
+import models.{CheckMode, UkAddress, UserAnswers}
 import pages._
 import play.api.i18n.Messages
 import CheckYourAnswersHelper._
@@ -28,6 +28,21 @@ import uk.gov.hmrc.viewmodels.SummaryList._
 import uk.gov.hmrc.viewmodels.Text.Literal
 
 class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messages) {
+
+  def whatIsHeadOfficeAddressWithPostcode: Option[Row] = userAnswers.get(WhatIsHeadOfficeAddressWithPostcodePage) map {
+    answer =>
+      Row(
+        key     = Key(msg"whatIsHeadOfficeAddressWithPostcode.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
+        value   = Value(address(answer)),
+        actions = List(
+          Action(
+            content            = msg"site.edit",
+            href               = routes.WhatIsHeadOfficeAddressWithPostcodeController.onPageLoad(CheckMode).url,
+            visuallyHiddenText = Some(msg"site.edit.hidden".withArgs(msg"whatIsHeadOfficeAddressWithPostcode.checkYourAnswersLabel"))
+          )
+        )
+      )
+  }
 
   def whatIsHeadOfficeAddressWithCountryPicker: Option[Row] = userAnswers.get(WhatIsHeadOfficeAddressWithCountryPickerPage) map {
     answer =>
@@ -87,6 +102,10 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messag
           )
         )
       )
+  }
+
+  private def address(address: UkAddress): Content = {
+    lit"${address.AddressLineOne}, ${address.AddressLineTwo}, ${address.AddressLineThree}, ${address.AddressLineFour}, ${address.Postcode}"
   }
 
   private def yesOrNo(answer: Boolean): Content =

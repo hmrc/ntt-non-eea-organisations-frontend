@@ -23,11 +23,12 @@ import play.api.mvc.Call
 
 object NormalRoutes {
   val routeMap: Page => UserAnswers => Call = {
-    case IndexPage                                  => _ => routes.AboutThisSectionController.onPageLoad()
-    case AboutThisSectionPage                       => _ => routes.DoNonEEAOrgsHaveControllingInterestController.onPageLoad(NormalMode)
-    case DoNonEEAOrgsHaveControllingInterestPage    => _ => routes.WhatIsTheCompanyNameController.onPageLoad(NormalMode)
-    case WhatIsTheCompanyNamePage                   => _ => routes.IsTheHeadOfficeLocationKnownController.onPageLoad(NormalMode)
-    case IsTheHeadOfficeLocationKnownPage           => _ => routes.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(NormalMode)
-    case _                                          => _ => routes.IndexController.onPageLoad()
+    case IndexPage                                    => _ => routes.AboutThisSectionController.onPageLoad()
+    case AboutThisSectionPage                         => _ => routes.DoNonEEAOrgsHaveControllingInterestController.onPageLoad(NormalMode)
+    case DoNonEEAOrgsHaveControllingInterestPage      => _ => routes.WhatIsTheCompanyNameController.onPageLoad(NormalMode)
+    case WhatIsTheCompanyNamePage                     => _ => routes.IsTheHeadOfficeLocationKnownController.onPageLoad(NormalMode)
+    case IsTheHeadOfficeLocationKnownPage             => _ => routes.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(NormalMode)
+    case WhatIsHeadOfficeAddressWithCountryPickerPage => _ => routes.WhatIsHeadOfficeAddressWithPostcodeController.onPageLoad(NormalMode)
+    case _                                            => _ => routes.IndexController.onPageLoad()
   }
 }

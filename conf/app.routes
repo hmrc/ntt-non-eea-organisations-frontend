@@ -37,3 +37,8 @@ GET        /whatIsHeadOfficeAddressWithCountryPicker                        cont
 POST       /whatIsHeadOfficeAddressWithCountryPicker                        controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onSubmit(mode: Mode = NormalMode)
 GET        /changeWhatIsHeadOfficeAddressWithCountryPicker                  controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeWhatIsHeadOfficeAddressWithCountryPicker                  controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onSubmit(mode: Mode = CheckMode)
+
+GET        /whatIsHeadOfficeAddressWithPostcode                        controllers.WhatIsHeadOfficeAddressWithPostcodeController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatIsHeadOfficeAddressWithPostcode                        controllers.WhatIsHeadOfficeAddressWithPostcodeController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatIsHeadOfficeAddressWithPostcode                  controllers.WhatIsHeadOfficeAddressWithPostcodeController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatIsHeadOfficeAddressWithPostcode                  controllers.WhatIsHeadOfficeAddressWithPostcodeController.onSubmit(mode: Mode = CheckMode)

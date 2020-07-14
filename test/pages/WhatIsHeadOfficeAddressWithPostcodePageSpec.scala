@@ -14,19 +14,22 @@
  * limitations under the License.
  */
 
-package generators
+package pages
 
-import models._
-import org.scalacheck.Arbitrary.arbitrary
+import models.{UkAddress, WhatIsHeadOfficeAddressWithPostcode}
 import org.scalacheck.{Arbitrary, Gen}
+import pages.behaviours.PageBehaviours
 
-trait ModelGenerators {
+class WhatIsHeadOfficeAddressWithPostcodePageSpec extends PageBehaviours {
 
-  implicit lazy val arbitraryWhatIsHeadOfficeAddressWithPostcode: Arbitrary[WhatIsHeadOfficeAddressWithPostcode] =
-    Arbitrary {
-      for {
-        AddressLineOne <- arbitrary[String]
-        AddressLineTwo <- arbitrary[String]
-      } yield WhatIsHeadOfficeAddressWithPostcode(AddressLineOne, AddressLineTwo)
-    }
+  "WhatIsHeadOfficeAddressWithPostcodePage" - {
+
+    implicit val arb: Arbitrary[UkAddress] = Arbitrary(Gen.const(UkAddress("line1", "line2", "line3", "line4", "postcode")))
+
+    beRetrievable[UkAddress](WhatIsHeadOfficeAddressWithPostcodePage)
+
+    beSettable[UkAddress](WhatIsHeadOfficeAddressWithPostcodePage)
+
+    beRemovable[UkAddress](WhatIsHeadOfficeAddressWithPostcodePage)
+  }
 }

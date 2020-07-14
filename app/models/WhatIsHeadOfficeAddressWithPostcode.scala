@@ -14,19 +14,12 @@
  * limitations under the License.
  */
 
-package generators
+package models
 
-import models._
-import org.scalacheck.Arbitrary.arbitrary
-import org.scalacheck.{Arbitrary, Gen}
+import play.api.libs.json._
 
-trait ModelGenerators {
+case class WhatIsHeadOfficeAddressWithPostcode (AddressLineOne: String, AddressLineTwo: String)
 
-  implicit lazy val arbitraryWhatIsHeadOfficeAddressWithPostcode: Arbitrary[WhatIsHeadOfficeAddressWithPostcode] =
-    Arbitrary {
-      for {
-        AddressLineOne <- arbitrary[String]
-        AddressLineTwo <- arbitrary[String]
-      } yield WhatIsHeadOfficeAddressWithPostcode(AddressLineOne, AddressLineTwo)
-    }
+object WhatIsHeadOfficeAddressWithPostcode {
+  implicit val format = Json.format[WhatIsHeadOfficeAddressWithPostcode]
 }
