@@ -29,6 +29,7 @@ import renderer.Renderer
 import repositories.SessionRepository
 import uk.gov.hmrc.play.bootstrap.controller.FrontendBaseController
 import uk.gov.hmrc.viewmodels.{DateInput, NunjucksSupport}
+
 import scala.concurrent.{ExecutionContext, Future}
 
 class WhenDidTheCompanyBecomePartOfTheTrustController @Inject()(
