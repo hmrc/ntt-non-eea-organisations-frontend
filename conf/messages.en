@@ -184,3 +184,12 @@ whatIsTheGoverningCountry.heading = What is the governing country/territory?
 whatIsTheGoverningCountry.checkYourAnswersLabel = What is the governing country/territory?
 whatIsTheGoverningCountry.error.required = Enter the governing country/territory
 whatIsTheGoverningCountry.error.length = The governing country/territory must be 100 characters or less
+
+whenDidTheCompanyBecomePartOfTheTrust.title = WhenDidTheCompanyBecomePartOfTheTrust
+whenDidTheCompanyBecomePartOfTheTrust.heading = WhenDidTheCompanyBecomePartOfTheTrust
+whenDidTheCompanyBecomePartOfTheTrust.hint = For example, 12 11 2007
+whenDidTheCompanyBecomePartOfTheTrust.checkYourAnswersLabel = WhenDidTheCompanyBecomePartOfTheTrust
+whenDidTheCompanyBecomePartOfTheTrust.error.required.all = Enter the whenDidTheCompanyBecomePartOfTheTrust
+whenDidTheCompanyBecomePartOfTheTrust.error.required.two = The whenDidTheCompanyBecomePartOfTheTrust must include {0} and {1}
+whenDidTheCompanyBecomePartOfTheTrust.error.required = The whenDidTheCompanyBecomePartOfTheTrust must include {0}
+whenDidTheCompanyBecomePartOfTheTrust.error.invalid = Enter a real WhenDidTheCompanyBecomePartOfTheTrust

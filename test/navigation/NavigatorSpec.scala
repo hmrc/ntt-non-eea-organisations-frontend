@@ -107,6 +107,14 @@ class NavigatorSpec extends SpecBase with ScalaCheckPropertyChecks with Generato
         }
       }
 
+      "must go from What is governing country? to When did the company become part of the trust" in {
+        forAll(arbitrary[UserAnswers]) {
+          answers =>
+            navigator.nextPage(WhatIsTheGoverningCountryPage, NormalMode, answers)
+              .mustBe(routes.WhenDidTheCompanyBecomePartOfTheTrustController.onPageLoad(NormalMode))
+        }
+      }
+
     }
 
     "in Check mode" - {

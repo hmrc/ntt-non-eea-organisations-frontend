@@ -52,3 +52,8 @@ GET        /whatIsTheGoverningCountry                        controllers.WhatIsT
 POST       /whatIsTheGoverningCountry                        controllers.WhatIsTheGoverningCountryController.onSubmit(mode: Mode = NormalMode)
 GET        /changeWhatIsTheGoverningCountry                  controllers.WhatIsTheGoverningCountryController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeWhatIsTheGoverningCountry                  controllers.WhatIsTheGoverningCountryController.onSubmit(mode: Mode = CheckMode)
+
+GET        /whenDidTheCompanyBecomePartOfTheTrust                  controllers.WhenDidTheCompanyBecomePartOfTheTrustController.onPageLoad(mode: Mode = NormalMode)
+POST       /whenDidTheCompanyBecomePartOfTheTrust                  controllers.WhenDidTheCompanyBecomePartOfTheTrustController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhenDidTheCompanyBecomePartOfTheTrust                        controllers.WhenDidTheCompanyBecomePartOfTheTrustController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhenDidTheCompanyBecomePartOfTheTrust                        controllers.WhenDidTheCompanyBecomePartOfTheTrustController.onSubmit(mode: Mode = CheckMode)

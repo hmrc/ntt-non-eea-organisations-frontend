@@ -21,6 +21,9 @@ import pages._
 
 trait PageGenerators {
 
+  implicit lazy val arbitraryWhenDidTheCompanyBecomePartOfTheTrustPage: Arbitrary[WhenDidTheCompanyBecomePartOfTheTrustPage.type] =
+    Arbitrary(WhenDidTheCompanyBecomePartOfTheTrustPage)
+
   implicit lazy val arbitraryWhatIsTheGoverningCountryPage: Arbitrary[WhatIsTheGoverningCountryPage.type] =
     Arbitrary(WhatIsTheGoverningCountryPage)
 
