@@ -18,7 +18,7 @@ package navigation
 
 import controllers.routes
 import models.{NormalMode, UserAnswers}
-import pages.{AboutThisSectionPage, DoNonEEAOrgsHaveControllingInterestPage, IndexPage, IsTheGoverningCountryKnownPage, IsTheHeadOfficeLocationKnownPage, Page, WhatIsHeadOfficeAddressWithCountryPickerPage, WhatIsHeadOfficeAddressWithPostcodePage, WhatIsTheCompanyNamePage, WhatIsTheGoverningCountryPage}
+import pages.{AboutThisSectionPage, DoNonEEAOrgsHaveControllingInterestPage, IndexPage, IsTheGoverningCountryKnownPage, IsTheHeadOfficeLocationKnownPage, Page, WhatIsHeadOfficeAddressWithCountryPickerPage, WhatIsHeadOfficeAddressWithPostcodePage, WhatIsTheCompanyNamePage, WhatIsTheGoverningCountryPage, WhenDidTheCompanyBecomePartOfTheTrustPage}
 import play.api.mvc.Call
 
 object NormalRoutes {
@@ -32,6 +32,7 @@ object NormalRoutes {
     case WhatIsHeadOfficeAddressWithPostcodePage      => _ => routes.IsTheGoverningCountryKnownController.onPageLoad(NormalMode)
     case IsTheGoverningCountryKnownPage               => _ => routes.WhatIsTheGoverningCountryController.onPageLoad(NormalMode)
     case WhatIsTheGoverningCountryPage                => _ => routes.WhenDidTheCompanyBecomePartOfTheTrustController.onPageLoad(NormalMode)
+    case WhenDidTheCompanyBecomePartOfTheTrustPage    => _ => routes.IsTheCompanyStillPartOfTheTrustController.onPageLoad(NormalMode)
     case _                                            => _ => routes.IndexController.onPageLoad()
   }
 }

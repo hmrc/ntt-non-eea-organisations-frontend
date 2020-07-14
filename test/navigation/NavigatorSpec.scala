@@ -114,6 +114,14 @@ class NavigatorSpec extends SpecBase with ScalaCheckPropertyChecks with Generato
               .mustBe(routes.WhenDidTheCompanyBecomePartOfTheTrustController.onPageLoad(NormalMode))
         }
       }
+      "must go from When did the company become part of the trust to Is the company still a part of the trust" in {
+        forAll(arbitrary[UserAnswers]) {
+          answers =>
+            navigator.nextPage(WhenDidTheCompanyBecomePartOfTheTrustPage, NormalMode, answers)
+              .mustBe(routes.IsTheCompanyStillPartOfTheTrustController.onPageLoad(NormalMode))
+        }
+      }
+
 
     }
 
