@@ -155,14 +155,14 @@ whatIsHeadOfficeAddressWithCountryPicker.checkYourAnswersLabel = What is the hea
 whatIsHeadOfficeAddressWithCountryPicker.error.required = Enter head office location
 whatIsHeadOfficeAddressWithCountryPicker.error.length = Head office location must be 100 characters or less
 
-whatIsHeadOfficeAddressWithPostcode.title = whatIsHeadOfficeAddressWithPostcode
-whatIsHeadOfficeAddressWithPostcode.heading = whatIsHeadOfficeAddressWithPostcode
+whatIsHeadOfficeAddressWithPostcode.title = What is the head office address?
+whatIsHeadOfficeAddressWithPostcode.heading = What is the head office address?
 whatIsHeadOfficeAddressWithPostcode.AddressLineOne = Address Line 1
 whatIsHeadOfficeAddressWithPostcode.AddressLineTwo = Addres Line 2
 whatIsHeadOfficeAddressWithPostcode.AddressLineThree = Addres Line 3
 whatIsHeadOfficeAddressWithPostcode.AddressLineFour = Addres Line 4
 whatIsHeadOfficeAddressWithPostcode.Postcode = Postcode
-whatIsHeadOfficeAddressWithPostcode.checkYourAnswersLabel = whatIsHeadOfficeAddressWithPostcode
+whatIsHeadOfficeAddressWithPostcode.checkYourAnswersLabel = What is the head office address?
 whatIsHeadOfficeAddressWithPostcode.error.AddressLineOne.required = Enter Address Line 1
 whatIsHeadOfficeAddressWithPostcode.error.AddressLineOne.length = Address Line 1 must be 100 characters or less
 whatIsHeadOfficeAddressWithPostcode.error.AddressLineTwo.required = Enter Address Line 2
@@ -173,3 +173,8 @@ whatIsHeadOfficeAddressWithPostcode.error.AddressLineFour.required = Enter Addre
 whatIsHeadOfficeAddressWithPostcode.error.AddressLineFour.length = Address Line 4 must be 100 characters or less
 whatIsHeadOfficeAddressWithPostcode.error.Postcode.required = Enter Postcode
 whatIsHeadOfficeAddressWithPostcode.error.Postcode.length = Postcode must be 8 characters or less
+
+isTheGoverningCountryKnown.title = Is the governing country/territory known?
+isTheGoverningCountryKnown.heading = Is the governing country/territory known?
+isTheGoverningCountryKnown.checkYourAnswersLabel = Is the governing country/territory known?
+isTheGoverningCountryKnown.error.required = Select yes if governing country/territory is known

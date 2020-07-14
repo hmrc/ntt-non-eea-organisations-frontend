@@ -42,3 +42,8 @@ GET        /whatIsHeadOfficeAddressWithPostcode                        controlle
 POST       /whatIsHeadOfficeAddressWithPostcode                        controllers.WhatIsHeadOfficeAddressWithPostcodeController.onSubmit(mode: Mode = NormalMode)
 GET        /changeWhatIsHeadOfficeAddressWithPostcode                  controllers.WhatIsHeadOfficeAddressWithPostcodeController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeWhatIsHeadOfficeAddressWithPostcode                  controllers.WhatIsHeadOfficeAddressWithPostcodeController.onSubmit(mode: Mode = CheckMode)
+
+GET        /isTheGoverningCountryKnown                        controllers.IsTheGoverningCountryKnownController.onPageLoad(mode: Mode = NormalMode)
+POST       /isTheGoverningCountryKnown                        controllers.IsTheGoverningCountryKnownController.onSubmit(mode: Mode = NormalMode)
+GET        /changeIsTheGoverningCountryKnown                  controllers.IsTheGoverningCountryKnownController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeIsTheGoverningCountryKnown                  controllers.IsTheGoverningCountryKnownController.onSubmit(mode: Mode = CheckMode)
