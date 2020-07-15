@@ -10,6 +10,7 @@ GET        /language/:lang                              controllers.LanguageSwit
 GET        /this-service-has-been-reset                 controllers.SessionExpiredController.onPageLoad
 
 GET        /check-your-answers                          controllers.CheckYourAnswersController.onPageLoad
+POST       /check-your-answers                                          controllers.CheckYourAnswersController.onSubmit
 
 GET        /unauthorised                                controllers.UnauthorisedController.onPageLoad
 
@@ -72,3 +73,8 @@ GET        /isHeadOfficeInUK                        controllers.IsHeadOfficeInUK
 POST       /isHeadOfficeInUK                        controllers.IsHeadOfficeInUKController.onSubmit(mode: Mode = NormalMode)
 GET        /changeIsHeadOfficeInUK                  controllers.IsHeadOfficeInUKController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeIsHeadOfficeInUK                  controllers.IsHeadOfficeInUKController.onSubmit(mode: Mode = CheckMode)
+
+GET        /doYouWantToAddAnotherNonEEAOrganisation                        controllers.DoYouWantToAddAnotherNonEEAOrganisationController.onPageLoad(mode: Mode = NormalMode)
+POST       /doYouWantToAddAnotherNonEEAOrganisation                        controllers.DoYouWantToAddAnotherNonEEAOrganisationController.onSubmit(mode: Mode = NormalMode)
+GET        /changeDoYouWantToAddAnotherNonEEAOrganisation                  controllers.DoYouWantToAddAnotherNonEEAOrganisationController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeDoYouWantToAddAnotherNonEEAOrganisation                  controllers.DoYouWantToAddAnotherNonEEAOrganisationController.onSubmit(mode: Mode = CheckMode)

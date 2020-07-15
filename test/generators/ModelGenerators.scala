@@ -22,6 +22,11 @@ import org.scalacheck.{Arbitrary, Gen}
 
 trait ModelGenerators {
 
+  implicit lazy val arbitraryDoYouWantToAddAnotherNonEEAOrganisation: Arbitrary[DoYouWantToAddAnotherNonEEAOrganisation] =
+    Arbitrary {
+      Gen.oneOf(DoYouWantToAddAnotherNonEEAOrganisation.values.toSeq)
+    }
+
   implicit lazy val arbitraryWhatIsHeadOfficeAddressWithPostcode: Arbitrary[WhatIsHeadOfficeAddressWithPostcode] =
     Arbitrary {
       for {

@@ -146,6 +146,13 @@ class NavigatorSpec extends SpecBase with ScalaCheckPropertyChecks with Generato
         }
       }
 
+      "must go from Check your answers to Add another Non-EEA ORg page" in {
+        forAll(arbitrary[UserAnswers]) {
+          answers =>
+            navigator.nextPage(CheckYourAnswersPage, NormalMode, answers)
+              .mustBe(routes.DoYouWantToAddAnotherNonEEAOrganisationController.onPageLoad(NormalMode))
+        }
+      }
     }
 
     "in Check mode" - {

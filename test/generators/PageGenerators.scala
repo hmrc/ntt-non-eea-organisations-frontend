@@ -21,6 +21,9 @@ import pages._
 
 trait PageGenerators {
 
+  implicit lazy val arbitraryDoYouWantToAddAnotherNonEEAOrganisationPage: Arbitrary[DoYouWantToAddAnotherNonEEAOrganisationPage.type] =
+    Arbitrary(DoYouWantToAddAnotherNonEEAOrganisationPage)
+
   implicit lazy val arbitraryIsHeadOfficeInUKPage: Arbitrary[IsHeadOfficeInUKPage.type] =
     Arbitrary(IsHeadOfficeInUKPage)
 

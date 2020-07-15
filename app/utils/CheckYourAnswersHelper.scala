@@ -30,6 +30,21 @@ import uk.gov.hmrc.viewmodels.Text.Literal
 
 class CheckYourAnswersHelper(userAnswers: UserAnswers, countryService: CountryService)(implicit messages: Messages) {
 
+  def doYouWantToAddAnotherNonEEAOrganisation: Option[Row] = userAnswers.get(DoYouWantToAddAnotherNonEEAOrganisationPage) map {
+    answer =>
+      Row(
+        key     = Key(msg"doYouWantToAddAnotherNonEEAOrganisation.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
+        value   = Value(msg"doYouWantToAddAnotherNonEEAOrganisation.$answer"),
+        actions = List(
+          Action(
+            content            = msg"site.edit",
+            href               = routes.DoYouWantToAddAnotherNonEEAOrganisationController.onPageLoad(CheckMode).url,
+            visuallyHiddenText = Some(msg"site.edit.hidden".withArgs(msg"doYouWantToAddAnotherNonEEAOrganisation.checkYourAnswersLabel"))
+          )
+        )
+      )
+  }
+
   def isHeadOfficeInUK: Option[Row] = userAnswers.get(IsHeadOfficeInUKPage) map {
     answer =>
       Row(

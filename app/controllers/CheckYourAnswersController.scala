@@ -18,10 +18,14 @@ package controllers
 
 import com.google.inject.Inject
 import controllers.actions.{DataRequiredAction, DataRetrievalAction, IdentifierAction}
+import models.{NormalMode, UserAnswers}
+import navigation.Navigator
+import pages.CheckYourAnswersPage
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.libs.json.Json
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import renderer.Renderer
+import repositories.SessionRepository
 import services.CountryService
 import uk.gov.hmrc.play.bootstrap.controller.FrontendBaseController
 import uk.gov.hmrc.viewmodels.{NunjucksSupport, SummaryList}
@@ -36,7 +40,9 @@ class CheckYourAnswersController @Inject()(
     requireData: DataRequiredAction,
     val controllerComponents: MessagesControllerComponents,
     renderer: Renderer,
-    countryService: CountryService
+    countryService: CountryService,
+    sessionRepository: SessionRepository,
+    navigator: Navigator
 )(implicit ec: ExecutionContext) extends FrontendBaseController with I18nSupport with NunjucksSupport {
 
   def onPageLoad(): Action[AnyContent] = (identify andThen getData andThen requireData).async {
@@ -63,4 +69,13 @@ class CheckYourAnswersController @Inject()(
         Json.obj("list" -> answers)
       ).map(Ok(_))
   }
+  def onSubmit(): Action[AnyContent] = (identify andThen getData andThen requireData).async {
+
+    implicit request =>
+      val answers = UserAnswers(request.internalId)
+      for {
+        _ <- sessionRepository.set(answers)
+      } yield Redirect(navigator.nextPage(CheckYourAnswersPage, NormalMode, answers))
+  }
+
 }

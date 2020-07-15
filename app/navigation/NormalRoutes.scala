@@ -18,7 +18,7 @@ package navigation
 
 import controllers.routes
 import models.{NormalMode, UserAnswers}
-import pages.{AboutThisSectionPage, DoNonEEAOrgsHaveControllingInterestPage, IndexPage, IsHeadOfficeInUKPage, IsTheCompanyStillPartOfTheTrustPage, IsTheGoverningCountryKnownPage, IsTheHeadOfficeLocationKnownPage, Page, WhatIsHeadOfficeAddressWithCountryPickerPage, WhatIsHeadOfficeAddressWithPostcodePage, WhatIsTheCompanyNamePage, WhatIsTheGoverningCountryPage, WhenDidTheCompanyBecomePartOfTheTrustPage, WhenDidTheCompanyLeaveTheTrustPage}
+import pages.{AboutThisSectionPage, CheckYourAnswersPage, DoNonEEAOrgsHaveControllingInterestPage, IndexPage, IsHeadOfficeInUKPage, IsTheCompanyStillPartOfTheTrustPage, IsTheGoverningCountryKnownPage, IsTheHeadOfficeLocationKnownPage, Page, WhatIsHeadOfficeAddressWithCountryPickerPage, WhatIsHeadOfficeAddressWithPostcodePage, WhatIsTheCompanyNamePage, WhatIsTheGoverningCountryPage, WhenDidTheCompanyBecomePartOfTheTrustPage, WhenDidTheCompanyLeaveTheTrustPage}
 import play.api.mvc.Call
 
 object NormalRoutes {
@@ -35,7 +35,8 @@ object NormalRoutes {
     case WhatIsTheGoverningCountryPage                => _ => routes.WhenDidTheCompanyBecomePartOfTheTrustController.onPageLoad(NormalMode)
     case WhenDidTheCompanyBecomePartOfTheTrustPage    => _ => routes.IsTheCompanyStillPartOfTheTrustController.onPageLoad(NormalMode)
     case IsTheCompanyStillPartOfTheTrustPage          => _ => routes.WhenDidTheCompanyLeaveTheTrustController.onPageLoad(NormalMode)
-    case WhenDidTheCompanyLeaveTheTrustPage    => _ => routes.CheckYourAnswersController.onPageLoad()
+    case WhenDidTheCompanyLeaveTheTrustPage           => _ => routes.CheckYourAnswersController.onPageLoad()
+    case CheckYourAnswersPage                         => _ => routes.DoYouWantToAddAnotherNonEEAOrganisationController.onPageLoad(NormalMode);
     case _                                            => _ => routes.IndexController.onPageLoad()
   }
 }
