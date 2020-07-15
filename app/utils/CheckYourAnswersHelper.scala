@@ -23,11 +23,27 @@ import models.{CheckMode, UkAddress, UserAnswers}
 import pages._
 import play.api.i18n.Messages
 import CheckYourAnswersHelper._
+import services.CountryService
 import uk.gov.hmrc.viewmodels._
 import uk.gov.hmrc.viewmodels.SummaryList._
 import uk.gov.hmrc.viewmodels.Text.Literal
 
-class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messages) {
+class CheckYourAnswersHelper(userAnswers: UserAnswers, countryService: CountryService)(implicit messages: Messages) {
+
+  def isHeadOfficeInUK: Option[Row] = userAnswers.get(IsHeadOfficeInUKPage) map {
+    answer =>
+      Row(
+        key     = Key(msg"isHeadOfficeInUK.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
+        value   = Value(yesOrNo(answer)),
+        actions = List(
+          Action(
+            content            = msg"site.edit",
+            href               = routes.IsHeadOfficeInUKController.onPageLoad(CheckMode).url,
+            visuallyHiddenText = Some(msg"site.edit.hidden".withArgs(msg"isHeadOfficeInUK.checkYourAnswersLabel"))
+          )
+        )
+      )
+  }
 
   def whenDidTheCompanyLeaveTheTrust: Option[Row] = userAnswers.get(WhenDidTheCompanyLeaveTheTrustPage) map {
     answer =>
@@ -78,7 +94,7 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messag
     answer =>
       Row(
         key     = Key(msg"whatIsTheGoverningCountry.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
-        value   = Value(lit"$answer"),
+        value   = Value(country(answer)),
         actions = List(
           Action(
             content            = msg"site.edit",
@@ -123,7 +139,7 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messag
     answer =>
       Row(
         key     = Key(msg"whatIsHeadOfficeAddressWithCountryPicker.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
-        value   = Value(lit"$answer"),
+        value   = Value(country(answer)),
         actions = List(
           Action(
             content            = msg"site.edit",
@@ -182,6 +198,9 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messag
   private def address(address: UkAddress): Content = {
     lit"${address.AddressLineOne}, ${address.AddressLineTwo}, ${address.AddressLineThree}, ${address.AddressLineFour}, ${address.Postcode}"
   }
+
+  private def country(code: String): Content =
+    lit"${countryService.getCountryByCode(code).getOrElse("")}"
 
   private def yesOrNo(answer: Boolean): Content =
     if (answer) {

@@ -18,7 +18,7 @@ package navigation
 
 import controllers.routes
 import models.{NormalMode, UserAnswers}
-import pages.{AboutThisSectionPage, DoNonEEAOrgsHaveControllingInterestPage, IndexPage, IsTheCompanyStillPartOfTheTrustPage, IsTheGoverningCountryKnownPage, IsTheHeadOfficeLocationKnownPage, Page, WhatIsHeadOfficeAddressWithCountryPickerPage, WhatIsHeadOfficeAddressWithPostcodePage, WhatIsTheCompanyNamePage, WhatIsTheGoverningCountryPage, WhenDidTheCompanyBecomePartOfTheTrustPage}
+import pages.{AboutThisSectionPage, DoNonEEAOrgsHaveControllingInterestPage, IndexPage, IsHeadOfficeInUKPage, IsTheCompanyStillPartOfTheTrustPage, IsTheGoverningCountryKnownPage, IsTheHeadOfficeLocationKnownPage, Page, WhatIsHeadOfficeAddressWithCountryPickerPage, WhatIsHeadOfficeAddressWithPostcodePage, WhatIsTheCompanyNamePage, WhatIsTheGoverningCountryPage, WhenDidTheCompanyBecomePartOfTheTrustPage, WhenDidTheCompanyLeaveTheTrustPage}
 import play.api.mvc.Call
 
 object NormalRoutes {
@@ -27,13 +27,15 @@ object NormalRoutes {
     case AboutThisSectionPage                         => _ => routes.DoNonEEAOrgsHaveControllingInterestController.onPageLoad(NormalMode)
     case DoNonEEAOrgsHaveControllingInterestPage      => _ => routes.WhatIsTheCompanyNameController.onPageLoad(NormalMode)
     case WhatIsTheCompanyNamePage                     => _ => routes.IsTheHeadOfficeLocationKnownController.onPageLoad(NormalMode)
-    case IsTheHeadOfficeLocationKnownPage             => _ => routes.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(NormalMode)
+    case IsTheHeadOfficeLocationKnownPage             => _ => routes.IsHeadOfficeInUKController.onPageLoad(NormalMode)
+    case IsHeadOfficeInUKPage                         => _ => routes.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(NormalMode)
     case WhatIsHeadOfficeAddressWithCountryPickerPage => _ => routes.WhatIsHeadOfficeAddressWithPostcodeController.onPageLoad(NormalMode)
     case WhatIsHeadOfficeAddressWithPostcodePage      => _ => routes.IsTheGoverningCountryKnownController.onPageLoad(NormalMode)
     case IsTheGoverningCountryKnownPage               => _ => routes.WhatIsTheGoverningCountryController.onPageLoad(NormalMode)
     case WhatIsTheGoverningCountryPage                => _ => routes.WhenDidTheCompanyBecomePartOfTheTrustController.onPageLoad(NormalMode)
     case WhenDidTheCompanyBecomePartOfTheTrustPage    => _ => routes.IsTheCompanyStillPartOfTheTrustController.onPageLoad(NormalMode)
     case IsTheCompanyStillPartOfTheTrustPage          => _ => routes.WhenDidTheCompanyLeaveTheTrustController.onPageLoad(NormalMode)
+    case WhenDidTheCompanyLeaveTheTrustPage    => _ => routes.CheckYourAnswersController.onPageLoad()
     case _                                            => _ => routes.IndexController.onPageLoad()
   }
 }

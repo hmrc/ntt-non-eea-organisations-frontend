@@ -76,10 +76,18 @@ class NavigatorSpec extends SpecBase with ScalaCheckPropertyChecks with Generato
         }
       }
 
-      "must go from Is the head office location known page to Head office address with country picker" in {
+      "must go from Is the head office location known page to Is Head Office In UK" in {
         forAll(arbitrary[UserAnswers]) {
           answers =>
             navigator.nextPage(IsTheHeadOfficeLocationKnownPage, NormalMode, answers)
+              .mustBe(routes.IsHeadOfficeInUKController.onPageLoad(NormalMode))
+        }
+      }
+
+      "must go from Is Head Office In UK  Head office address with country picker" in {
+        forAll(arbitrary[UserAnswers]) {
+          answers =>
+            navigator.nextPage(IsHeadOfficeInUKPage, NormalMode, answers)
               .mustBe(routes.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(NormalMode))
         }
       }
@@ -127,6 +135,14 @@ class NavigatorSpec extends SpecBase with ScalaCheckPropertyChecks with Generato
           answers =>
             navigator.nextPage(IsTheCompanyStillPartOfTheTrustPage, NormalMode, answers)
               .mustBe(routes.WhenDidTheCompanyLeaveTheTrustController.onPageLoad(NormalMode))
+        }
+      }
+
+      "must go from When did the company leave the trust to Check your answers" in {
+        forAll(arbitrary[UserAnswers]) {
+          answers =>
+            navigator.nextPage(WhenDidTheCompanyLeaveTheTrustPage, NormalMode, answers)
+              .mustBe(routes.CheckYourAnswersController.onPageLoad())
         }
       }
 

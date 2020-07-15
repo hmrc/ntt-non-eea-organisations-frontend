@@ -67,3 +67,8 @@ GET        /whenDidTheCompanyLeaveTheTrust                  controllers.WhenDidT
 POST       /whenDidTheCompanyLeaveTheTrust                  controllers.WhenDidTheCompanyLeaveTheTrustController.onSubmit(mode: Mode = NormalMode)
 GET        /changeWhenDidTheCompanyLeaveTheTrust                        controllers.WhenDidTheCompanyLeaveTheTrustController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeWhenDidTheCompanyLeaveTheTrust                        controllers.WhenDidTheCompanyLeaveTheTrustController.onSubmit(mode: Mode = CheckMode)
+
+GET        /isHeadOfficeInUK                        controllers.IsHeadOfficeInUKController.onPageLoad(mode: Mode = NormalMode)
+POST       /isHeadOfficeInUK                        controllers.IsHeadOfficeInUKController.onSubmit(mode: Mode = NormalMode)
+GET        /changeIsHeadOfficeInUK                  controllers.IsHeadOfficeInUKController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeIsHeadOfficeInUK                  controllers.IsHeadOfficeInUKController.onSubmit(mode: Mode = CheckMode)
