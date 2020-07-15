@@ -62,3 +62,8 @@ GET        /isTheCompanyStillPartOfTheTrust                        controllers.I
 POST       /isTheCompanyStillPartOfTheTrust                        controllers.IsTheCompanyStillPartOfTheTrustController.onSubmit(mode: Mode = NormalMode)
 GET        /changeIsTheCompanyStillPartOfTheTrust                  controllers.IsTheCompanyStillPartOfTheTrustController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeIsTheCompanyStillPartOfTheTrust                  controllers.IsTheCompanyStillPartOfTheTrustController.onSubmit(mode: Mode = CheckMode)
+
+GET        /whenDidTheCompanyLeaveTheTrust                  controllers.WhenDidTheCompanyLeaveTheTrustController.onPageLoad(mode: Mode = NormalMode)
+POST       /whenDidTheCompanyLeaveTheTrust                  controllers.WhenDidTheCompanyLeaveTheTrustController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhenDidTheCompanyLeaveTheTrust                        controllers.WhenDidTheCompanyLeaveTheTrustController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhenDidTheCompanyLeaveTheTrust                        controllers.WhenDidTheCompanyLeaveTheTrustController.onSubmit(mode: Mode = CheckMode)

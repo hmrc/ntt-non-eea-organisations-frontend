@@ -29,6 +29,21 @@ import uk.gov.hmrc.viewmodels.Text.Literal
 
 class CheckYourAnswersHelper(userAnswers: UserAnswers)(implicit messages: Messages) {
 
+  def whenDidTheCompanyLeaveTheTrust: Option[Row] = userAnswers.get(WhenDidTheCompanyLeaveTheTrustPage) map {
+    answer =>
+      Row(
+        key     = Key(msg"whenDidTheCompanyLeaveTheTrust.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
+        value   = Value(Literal(answer.format(dateFormatter))),
+        actions = List(
+          Action(
+            content            = msg"site.edit",
+            href               = routes.WhenDidTheCompanyLeaveTheTrustController.onPageLoad(CheckMode).url,
+            visuallyHiddenText = Some(msg"site.edit.hidden".withArgs(msg"whenDidTheCompanyLeaveTheTrust.checkYourAnswersLabel"))
+          )
+        )
+      )
+  }
+
   def isTheCompanyStillPartOfTheTrust: Option[Row] = userAnswers.get(IsTheCompanyStillPartOfTheTrustPage) map {
     answer =>
       Row(

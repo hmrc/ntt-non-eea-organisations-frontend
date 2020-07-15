@@ -198,3 +198,12 @@ isTheCompanyStillPartOfTheTrust.title = Is the company still part fo the trust?
 isTheCompanyStillPartOfTheTrust.heading = Is the company still part fo the trust?
 isTheCompanyStillPartOfTheTrust.checkYourAnswersLabel = Is the company still part fo the trust?
 isTheCompanyStillPartOfTheTrust.error.required = Select yes if the company is still part of the trust
+
+whenDidTheCompanyLeaveTheTrust.title = WhenDidTheCompanyLeaveTheTrust
+whenDidTheCompanyLeaveTheTrust.heading = WhenDidTheCompanyLeaveTheTrust
+whenDidTheCompanyLeaveTheTrust.hint = For example, 12 11 2007
+whenDidTheCompanyLeaveTheTrust.checkYourAnswersLabel = WhenDidTheCompanyLeaveTheTrust
+whenDidTheCompanyLeaveTheTrust.error.required.all = Enter the whenDidTheCompanyLeaveTheTrust
+whenDidTheCompanyLeaveTheTrust.error.required.two = The whenDidTheCompanyLeaveTheTrust must include {0} and {1}
+whenDidTheCompanyLeaveTheTrust.error.required = The whenDidTheCompanyLeaveTheTrust must include {0}
+whenDidTheCompanyLeaveTheTrust.error.invalid = Enter a real WhenDidTheCompanyLeaveTheTrust
