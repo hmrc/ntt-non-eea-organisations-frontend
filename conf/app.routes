@@ -1,80 +1,80 @@
 # microservice specific routes
 
-GET        /                                            controllers.IndexController.onPageLoad
-POST       /                                            controllers.IndexController.onSubmit
+GET        /                                                            controllers.IndexController.onPageLoad
+POST       /                                                            controllers.IndexController.onSubmit
 
-GET        /assets/*file                                controllers.Assets.versioned(path="/public", file: Asset)
+GET        /assets/*file                                                controllers.Assets.versioned(path="/public", file: Asset)
 
-GET        /language/:lang                              controllers.LanguageSwitchController.switchToLanguage(lang: String)
+GET        /language/:lang                                              controllers.LanguageSwitchController.switchToLanguage(lang: String)
 
-GET        /this-service-has-been-reset                 controllers.SessionExpiredController.onPageLoad
+GET        /this-service-has-been-reset                                 controllers.SessionExpiredController.onPageLoad
 
-GET        /check-your-answers                          controllers.CheckYourAnswersController.onPageLoad
+GET        /check-your-answers                                          controllers.CheckYourAnswersController.onPageLoad
 POST       /check-your-answers                                          controllers.CheckYourAnswersController.onSubmit
 
-GET        /unauthorised                                controllers.UnauthorisedController.onPageLoad
+GET        /unauthorised                                                controllers.UnauthorisedController.onPageLoad
 
-GET        /accessibility-statement                     controllers.AccessibilityController.onPageLoad
+GET        /accessibility-statement                                     controllers.AccessibilityController.onPageLoad
 
-GET        /aboutThisSection                            controllers.AboutThisSectionController.onPageLoad()
-POST       /aboutThisSection                            controllers.AboutThisSectionController.onSubmit
+GET        /aboutThisSection                                            controllers.AboutThisSectionController.onPageLoad()
+POST       /aboutThisSection                                            controllers.AboutThisSectionController.onSubmit
 
-GET        /doNonEEAOrgsHaveControllingInterest                        controllers.DoNonEEAOrgsHaveControllingInterestController.onPageLoad(mode: Mode = NormalMode)
-POST       /doNonEEAOrgsHaveControllingInterest                        controllers.DoNonEEAOrgsHaveControllingInterestController.onSubmit(mode: Mode = NormalMode)
-GET        /changeDoNonEEAOrgsHaveControllingInterest                  controllers.DoNonEEAOrgsHaveControllingInterestController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeDoNonEEAOrgsHaveControllingInterest                  controllers.DoNonEEAOrgsHaveControllingInterestController.onSubmit(mode: Mode = CheckMode)
+GET        /doNonEEAOrgsHaveControllingInterest                         controllers.DoNonEEAOrgsHaveControllingInterestController.onPageLoad(mode: Mode = NormalMode)
+POST       /doNonEEAOrgsHaveControllingInterest                         controllers.DoNonEEAOrgsHaveControllingInterestController.onSubmit(mode: Mode = NormalMode)
+GET        /changeDoNonEEAOrgsHaveControllingInterest                   controllers.DoNonEEAOrgsHaveControllingInterestController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeDoNonEEAOrgsHaveControllingInterest                   controllers.DoNonEEAOrgsHaveControllingInterestController.onSubmit(mode: Mode = CheckMode)
 
-GET        /whatIsTheCompanyName                        controllers.WhatIsTheCompanyNameController.onPageLoad(mode: Mode = NormalMode)
-POST       /whatIsTheCompanyName                        controllers.WhatIsTheCompanyNameController.onSubmit(mode: Mode = NormalMode)
-GET        /changeWhatIsTheCompanyName                  controllers.WhatIsTheCompanyNameController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeWhatIsTheCompanyName                  controllers.WhatIsTheCompanyNameController.onSubmit(mode: Mode = CheckMode)
+GET        /whatIsTheCompanyName                                        controllers.WhatIsTheCompanyNameController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatIsTheCompanyName                                        controllers.WhatIsTheCompanyNameController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatIsTheCompanyName                                  controllers.WhatIsTheCompanyNameController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatIsTheCompanyName                                  controllers.WhatIsTheCompanyNameController.onSubmit(mode: Mode = CheckMode)
 
-GET        /isTheHeadOfficeLocationKnown                        controllers.IsTheHeadOfficeLocationKnownController.onPageLoad(mode: Mode = NormalMode)
-POST       /isTheHeadOfficeLocationKnown                        controllers.IsTheHeadOfficeLocationKnownController.onSubmit(mode: Mode = NormalMode)
-GET        /changeIsTheHeadOfficeLocationKnown                  controllers.IsTheHeadOfficeLocationKnownController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeIsTheHeadOfficeLocationKnown                  controllers.IsTheHeadOfficeLocationKnownController.onSubmit(mode: Mode = CheckMode)
+GET        /isTheHeadOfficeLocationKnown                                controllers.IsTheHeadOfficeLocationKnownController.onPageLoad(mode: Mode = NormalMode)
+POST       /isTheHeadOfficeLocationKnown                                controllers.IsTheHeadOfficeLocationKnownController.onSubmit(mode: Mode = NormalMode)
+GET        /changeIsTheHeadOfficeLocationKnown                          controllers.IsTheHeadOfficeLocationKnownController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeIsTheHeadOfficeLocationKnown                          controllers.IsTheHeadOfficeLocationKnownController.onSubmit(mode: Mode = CheckMode)
 
-GET        /whatIsHeadOfficeAddressWithCountryPicker                        controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(mode: Mode = NormalMode)
-POST       /whatIsHeadOfficeAddressWithCountryPicker                        controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onSubmit(mode: Mode = NormalMode)
-GET        /changeWhatIsHeadOfficeAddressWithCountryPicker                  controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeWhatIsHeadOfficeAddressWithCountryPicker                  controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onSubmit(mode: Mode = CheckMode)
+GET        /whatIsHeadOfficeAddressWithCountryPicker                    controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatIsHeadOfficeAddressWithCountryPicker                    controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatIsHeadOfficeAddressWithCountryPicker              controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatIsHeadOfficeAddressWithCountryPicker              controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onSubmit(mode: Mode = CheckMode)
 
 GET        /whatIsHeadOfficeAddressWithPostcode                        controllers.WhatIsHeadOfficeAddressWithPostcodeController.onPageLoad(mode: Mode = NormalMode)
 POST       /whatIsHeadOfficeAddressWithPostcode                        controllers.WhatIsHeadOfficeAddressWithPostcodeController.onSubmit(mode: Mode = NormalMode)
 GET        /changeWhatIsHeadOfficeAddressWithPostcode                  controllers.WhatIsHeadOfficeAddressWithPostcodeController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeWhatIsHeadOfficeAddressWithPostcode                  controllers.WhatIsHeadOfficeAddressWithPostcodeController.onSubmit(mode: Mode = CheckMode)
 
-GET        /isTheGoverningCountryKnown                        controllers.IsTheGoverningCountryKnownController.onPageLoad(mode: Mode = NormalMode)
-POST       /isTheGoverningCountryKnown                        controllers.IsTheGoverningCountryKnownController.onSubmit(mode: Mode = NormalMode)
-GET        /changeIsTheGoverningCountryKnown                  controllers.IsTheGoverningCountryKnownController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeIsTheGoverningCountryKnown                  controllers.IsTheGoverningCountryKnownController.onSubmit(mode: Mode = CheckMode)
+GET        /isTheGoverningCountryKnown                                  controllers.IsTheGoverningCountryKnownController.onPageLoad(mode: Mode = NormalMode)
+POST       /isTheGoverningCountryKnown                                  controllers.IsTheGoverningCountryKnownController.onSubmit(mode: Mode = NormalMode)
+GET        /changeIsTheGoverningCountryKnown                            controllers.IsTheGoverningCountryKnownController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeIsTheGoverningCountryKnown                            controllers.IsTheGoverningCountryKnownController.onSubmit(mode: Mode = CheckMode)
 
-GET        /whatIsTheGoverningCountry                        controllers.WhatIsTheGoverningCountryController.onPageLoad(mode: Mode = NormalMode)
-POST       /whatIsTheGoverningCountry                        controllers.WhatIsTheGoverningCountryController.onSubmit(mode: Mode = NormalMode)
-GET        /changeWhatIsTheGoverningCountry                  controllers.WhatIsTheGoverningCountryController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeWhatIsTheGoverningCountry                  controllers.WhatIsTheGoverningCountryController.onSubmit(mode: Mode = CheckMode)
+GET        /whatIsTheGoverningCountry                                   controllers.WhatIsTheGoverningCountryController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatIsTheGoverningCountry                                   controllers.WhatIsTheGoverningCountryController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatIsTheGoverningCountry                             controllers.WhatIsTheGoverningCountryController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatIsTheGoverningCountry                             controllers.WhatIsTheGoverningCountryController.onSubmit(mode: Mode = CheckMode)
 
-GET        /whenDidTheCompanyBecomePartOfTheTrust                  controllers.WhenDidTheCompanyBecomePartOfTheTrustController.onPageLoad(mode: Mode = NormalMode)
-POST       /whenDidTheCompanyBecomePartOfTheTrust                  controllers.WhenDidTheCompanyBecomePartOfTheTrustController.onSubmit(mode: Mode = NormalMode)
-GET        /changeWhenDidTheCompanyBecomePartOfTheTrust                        controllers.WhenDidTheCompanyBecomePartOfTheTrustController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeWhenDidTheCompanyBecomePartOfTheTrust                        controllers.WhenDidTheCompanyBecomePartOfTheTrustController.onSubmit(mode: Mode = CheckMode)
+GET        /whenDidTheCompanyBecomePartOfTheTrust                       controllers.WhenDidTheCompanyBecomePartOfTheTrustController.onPageLoad(mode: Mode = NormalMode)
+POST       /whenDidTheCompanyBecomePartOfTheTrust                       controllers.WhenDidTheCompanyBecomePartOfTheTrustController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhenDidTheCompanyBecomePartOfTheTrust                 controllers.WhenDidTheCompanyBecomePartOfTheTrustController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhenDidTheCompanyBecomePartOfTheTrust                 controllers.WhenDidTheCompanyBecomePartOfTheTrustController.onSubmit(mode: Mode = CheckMode)
 
-GET        /isTheCompanyStillPartOfTheTrust                        controllers.IsTheCompanyStillPartOfTheTrustController.onPageLoad(mode: Mode = NormalMode)
-POST       /isTheCompanyStillPartOfTheTrust                        controllers.IsTheCompanyStillPartOfTheTrustController.onSubmit(mode: Mode = NormalMode)
-GET        /changeIsTheCompanyStillPartOfTheTrust                  controllers.IsTheCompanyStillPartOfTheTrustController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeIsTheCompanyStillPartOfTheTrust                  controllers.IsTheCompanyStillPartOfTheTrustController.onSubmit(mode: Mode = CheckMode)
+GET        /isTheCompanyStillPartOfTheTrust                             controllers.IsTheCompanyStillPartOfTheTrustController.onPageLoad(mode: Mode = NormalMode)
+POST       /isTheCompanyStillPartOfTheTrust                             controllers.IsTheCompanyStillPartOfTheTrustController.onSubmit(mode: Mode = NormalMode)
+GET        /changeIsTheCompanyStillPartOfTheTrust                       controllers.IsTheCompanyStillPartOfTheTrustController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeIsTheCompanyStillPartOfTheTrust                       controllers.IsTheCompanyStillPartOfTheTrustController.onSubmit(mode: Mode = CheckMode)
 
-GET        /whenDidTheCompanyLeaveTheTrust                  controllers.WhenDidTheCompanyLeaveTheTrustController.onPageLoad(mode: Mode = NormalMode)
-POST       /whenDidTheCompanyLeaveTheTrust                  controllers.WhenDidTheCompanyLeaveTheTrustController.onSubmit(mode: Mode = NormalMode)
+GET        /whenDidTheCompanyLeaveTheTrust                              controllers.WhenDidTheCompanyLeaveTheTrustController.onPageLoad(mode: Mode = NormalMode)
+POST       /whenDidTheCompanyLeaveTheTrust                              controllers.WhenDidTheCompanyLeaveTheTrustController.onSubmit(mode: Mode = NormalMode)
 GET        /changeWhenDidTheCompanyLeaveTheTrust                        controllers.WhenDidTheCompanyLeaveTheTrustController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeWhenDidTheCompanyLeaveTheTrust                        controllers.WhenDidTheCompanyLeaveTheTrustController.onSubmit(mode: Mode = CheckMode)
 
-GET        /isHeadOfficeInUK                        controllers.IsHeadOfficeInUKController.onPageLoad(mode: Mode = NormalMode)
-POST       /isHeadOfficeInUK                        controllers.IsHeadOfficeInUKController.onSubmit(mode: Mode = NormalMode)
-GET        /changeIsHeadOfficeInUK                  controllers.IsHeadOfficeInUKController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeIsHeadOfficeInUK                  controllers.IsHeadOfficeInUKController.onSubmit(mode: Mode = CheckMode)
+GET        /isHeadOfficeInUK                                            controllers.IsHeadOfficeInUKController.onPageLoad(mode: Mode = NormalMode)
+POST       /isHeadOfficeInUK                                            controllers.IsHeadOfficeInUKController.onSubmit(mode: Mode = NormalMode)
+GET        /changeIsHeadOfficeInUK                                      controllers.IsHeadOfficeInUKController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeIsHeadOfficeInUK                                      controllers.IsHeadOfficeInUKController.onSubmit(mode: Mode = CheckMode)
 
-GET        /doYouWantToAddAnotherNonEEAOrganisation                        controllers.DoYouWantToAddAnotherNonEEAOrganisationController.onPageLoad(mode: Mode = NormalMode)
-POST       /doYouWantToAddAnotherNonEEAOrganisation                        controllers.DoYouWantToAddAnotherNonEEAOrganisationController.onSubmit(mode: Mode = NormalMode)
-GET        /changeDoYouWantToAddAnotherNonEEAOrganisation                  controllers.DoYouWantToAddAnotherNonEEAOrganisationController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeDoYouWantToAddAnotherNonEEAOrganisation                  controllers.DoYouWantToAddAnotherNonEEAOrganisationController.onSubmit(mode: Mode = CheckMode)
+GET        /doYouWantToAddAnotherNonEEAOrganisation                     controllers.DoYouWantToAddAnotherNonEEAOrganisationController.onPageLoad(mode: Mode = NormalMode)
+POST       /doYouWantToAddAnotherNonEEAOrganisation                     controllers.DoYouWantToAddAnotherNonEEAOrganisationController.onSubmit(mode: Mode = NormalMode)
+GET        /changeDoYouWantToAddAnotherNonEEAOrganisation               controllers.DoYouWantToAddAnotherNonEEAOrganisationController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeDoYouWantToAddAnotherNonEEAOrganisation               controllers.DoYouWantToAddAnotherNonEEAOrganisationController.onSubmit(mode: Mode = CheckMode)
