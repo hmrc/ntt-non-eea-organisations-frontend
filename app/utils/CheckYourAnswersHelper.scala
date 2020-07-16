@@ -211,10 +211,24 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers, countryService: CountrySe
   }
 
   private def ukAddress(address: UkAddress): Content = {
-    lit"${address.addressLineOne}, ${address.addressLineTwo}, ${address.addressLineThree}, ${address.addressLineFour}, ${address.postcode}"
+    val result = Seq(address.addressLineOne,
+      address.addressLineTwo,
+      address.addressLineThree.getOrElse(""),
+      address.addressLineFour.getOrElse(""),
+      address.postcode)
+      .mkString(",")
+
+    lit"$result"
   }
   private def nonUkAddress(address: NonUkAddress): Content = {
-    lit"${address.addressLineOne}, ${address.addressLineTwo}, ${address.addressLineThree}, ${address.addressLineFour}, ${countryString(address.country)}"
+    val result = Seq(address.addressLineOne,
+      address.addressLineTwo,
+      address.addressLineThree.getOrElse(""),
+      address.addressLineFour.getOrElse(""),
+      countryString(address.country))
+      .mkString(",")
+
+    lit"$result"
   }
 
   private def country(code: String): Content =
