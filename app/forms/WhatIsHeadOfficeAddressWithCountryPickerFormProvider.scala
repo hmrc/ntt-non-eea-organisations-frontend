@@ -26,14 +26,14 @@ class WhatIsHeadOfficeAddressWithCountryPickerFormProvider @Inject() extends Map
 
   def apply(): Form[NonUkAddress] = Form(
       mapping (
-        "AddressLineOne" -> text("whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineOne.required")
-          .verifying(maxLength(100, "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineOne.length")),
-        "AddressLineTwo" -> text("whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineTwo.required")
-          .verifying(maxLength(100, "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineTwo.length")),
-        "AddressLineThree" -> optionalText().verifying(optMaxLength(100, "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineThree.length")),
-        "AddressLineFour" -> optionalText().verifying(optMaxLength(100, "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineFour.length")),
-        "Country" -> text("whatIsHeadOfficeAddressWithCountryPicker.error.Country.required")
-          .verifying(maxLength(100, "whatIsHeadOfficeAddressWithCountryPicker.error.Country.length"))
+        "addressLineOne" -> text("whatIsHeadOfficeAddressWithCountryPicker.error.addressLineOne.required")
+          .verifying(maxLength(100, "whatIsHeadOfficeAddressWithCountryPicker.error.addressLineOne.length")),
+        "addressLineTwo" -> text("whatIsHeadOfficeAddressWithCountryPicker.error.addressLineTwo.required")
+          .verifying(maxLength(100, "whatIsHeadOfficeAddressWithCountryPicker.error.addressLineTwo.length")),
+        "addressLineThree" -> optionalText().verifying(optMaxLength(100, "whatIsHeadOfficeAddressWithCountryPicker.error.addressLineThree.length")),
+        "addressLineFour" -> optionalText().verifying(optMaxLength(100, "whatIsHeadOfficeAddressWithCountryPicker.error.addressLineFour.length")),
+        "country" -> text("whatIsHeadOfficeAddressWithCountryPicker.error.country.required")
+          .verifying(maxLength(100, "whatIsHeadOfficeAddressWithCountryPicker.error.country.length"))
       ) (NonUkAddress.apply) (NonUkAddress.unapply)
     )
 }

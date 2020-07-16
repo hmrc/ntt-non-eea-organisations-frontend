@@ -95,11 +95,11 @@ class WhatIsHeadOfficeAddressWithCountryPickerControllerSpec extends SpecBase wi
       verify(mockRenderer, times(1)).render(templateCaptor.capture(), jsonCaptor.capture())(any())
 
       val filledForm = form.bind( Map(
-        "AddressLineOne" -> "line1",
-        "AddressLineTwo" -> "line2",
-        "AddressLineThree" -> "line3",
-        "AddressLineFour" -> "line4",
-        "Country" -> "country"
+        "addressLineOne" -> "line1",
+        "addressLineTwo" -> "line2",
+        "addressLineThree" -> "line3",
+        "addressLineFour" -> "line4",
+        "country" -> "country"
       ))
 
       val expectedJson = Json.obj(
@@ -130,11 +130,11 @@ class WhatIsHeadOfficeAddressWithCountryPickerControllerSpec extends SpecBase wi
       val request =
         FakeRequest(POST, whatIsHeadOfficeAddressWithCountryPickerRoute)
           .withFormUrlEncodedBody(
-            ("AddressLineOne", "value 1"),
-            ("AddressLineTwo", "value 2"),
-            ("AddressLineThree", "value 3"),
-            ("AddressLineFour", "value 4"),
-            ("Country", "country")
+            ("addressLineOne", "value 1"),
+            ("addressLineTwo", "value 2"),
+            ("addressLineThree", "value 3"),
+            ("addressLineFour", "value 4"),
+            ("country", "country")
           )
 
       val result = route(application, request).value

@@ -50,8 +50,8 @@ class WhatIsHeadOfficeAddressWithPostcodeControllerSpec extends SpecBase with Mo
     userAnswersId,
     Json.obj(
       WhatIsHeadOfficeAddressWithPostcodePage.toString -> Json.obj(
-        "AddressLineOne" -> "value 1",
-        "AddressLineTwo" -> "value 2"
+        "addressLineOne" -> "value 1",
+        "addressLineTwo" -> "value 2"
       )
     )
   )
@@ -106,11 +106,11 @@ class WhatIsHeadOfficeAddressWithPostcodeControllerSpec extends SpecBase with Mo
 
       val filledForm = form.bind(
         Map(
-          "AddressLineOne" -> "line1",
-          "AddressLineTwo" -> "line2",
-          "AddressLineThree" -> "line3",
-          "AddressLineFour" -> "line4",
-          "Postcode" -> "postcode"
+          "addressLineOne" -> "line1",
+          "addressLineTwo" -> "line2",
+          "addressLineThree" -> "line3",
+          "addressLineFour" -> "line4",
+          "postcode" -> "postcode"
         )
       )
 
@@ -143,11 +143,11 @@ class WhatIsHeadOfficeAddressWithPostcodeControllerSpec extends SpecBase with Mo
       val request =
         FakeRequest(POST, whatIsHeadOfficeAddressWithPostcodeRoute)
           .withFormUrlEncodedBody(
-            ("AddressLineOne", "value 1"),
-            ("AddressLineTwo", "value 2"),
-            ("AddressLineThree", "value 3"),
-            ("AddressLineFour", "value 4"),
-            ("Postcode", "QW123WQ")
+            ("addressLineOne", "value 1"),
+            ("addressLineTwo", "value 2"),
+            ("addressLineThree", "value 3"),
+            ("addressLineFour", "value 4"),
+            ("postcode", "QW123WQ")
           )
 
       val result = route(application, request).value
@@ -207,7 +207,7 @@ class WhatIsHeadOfficeAddressWithPostcodeControllerSpec extends SpecBase with Mo
 
       val request =
         FakeRequest(POST, whatIsHeadOfficeAddressWithPostcodeRoute)
-          .withFormUrlEncodedBody(("AddressLineOne", "value 1"), ("AddressLineTwo", "value 2"))
+          .withFormUrlEncodedBody(("addressLineOne", "value 1"), ("addressLineTwo", "value 2"))
 
       val result = route(application, request).value
 

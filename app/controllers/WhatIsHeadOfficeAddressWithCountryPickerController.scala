@@ -61,7 +61,7 @@ class WhatIsHeadOfficeAddressWithCountryPickerController @Inject()(
       val json = Json.obj(
         "form" -> preparedForm,
         "mode" -> mode,
-        "countries" -> countries(messages = request2Messages(request), selected = existingAnswer.map(x => x.Country))
+        "countries" -> countries(messages = request2Messages(request), selected = existingAnswer.map(x => x.country))
       )
 
       renderer.render("whatIsHeadOfficeAddressWithCountryPicker.njk", json).map(Ok(_))

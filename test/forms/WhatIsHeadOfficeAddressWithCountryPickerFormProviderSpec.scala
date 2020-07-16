@@ -23,11 +23,11 @@ class WhatIsHeadOfficeAddressWithCountryPickerFormProviderSpec extends StringFie
 
   val form = new WhatIsHeadOfficeAddressWithCountryPickerFormProvider()()
 
-  ".AddressLineOne" - {
+  ".addressLineOne" - {
 
-    val fieldName = "AddressLineOne"
-    val requiredKey = "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineOne.required"
-    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineOne.length"
+    val fieldName = "addressLineOne"
+    val requiredKey = "whatIsHeadOfficeAddressWithCountryPicker.error.addressLineOne.required"
+    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.addressLineOne.length"
     val maxLength = 100
 
     behave like fieldThatBindsValidData(
@@ -50,11 +50,11 @@ class WhatIsHeadOfficeAddressWithCountryPickerFormProviderSpec extends StringFie
     )
   }
 
-  ".AddressLineTwo" - {
+  ".addressLineTwo" - {
 
-    val fieldName = "AddressLineTwo"
-    val requiredKey = "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineTwo.required"
-    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineTwo.length"
+    val fieldName = "addressLineTwo"
+    val requiredKey = "whatIsHeadOfficeAddressWithCountryPicker.error.addressLineTwo.required"
+    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.addressLineTwo.length"
     val maxLength = 100
 
     behave like fieldThatBindsValidData(
@@ -77,11 +77,11 @@ class WhatIsHeadOfficeAddressWithCountryPickerFormProviderSpec extends StringFie
     )
   }
 
-  ".AddressLineThree" - {
+  ".addressLineThree" - {
 
-    val fieldName = "AddressLineThree"
+    val fieldName = "addressLineThree"
 
-    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineThree.length"
+    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.addressLineThree.length"
     val maxLength = 100
 
     behave like fieldThatBindsValidData(
@@ -98,11 +98,11 @@ class WhatIsHeadOfficeAddressWithCountryPickerFormProviderSpec extends StringFie
     )
   }
 
-  ".AddressLineFour" - {
+  ".addressLineFour" - {
 
-    val fieldName = "AddressLineFour"
+    val fieldName = "addressLineFour"
 
-    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineFour.length"
+    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.addressLineFour.length"
     val maxLength = 100
 
     behave like fieldThatBindsValidData(
@@ -119,11 +119,11 @@ class WhatIsHeadOfficeAddressWithCountryPickerFormProviderSpec extends StringFie
     )
   }
 
-  ".Country" - {
+  ".country" - {
 
-    val fieldName = "Country"
-    val requiredKey = "whatIsHeadOfficeAddressWithCountryPicker.error.Country.required"
-    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.Country.length"
+    val fieldName = "country"
+    val requiredKey = "whatIsHeadOfficeAddressWithCountryPicker.error.country.required"
+    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.country.length"
     val maxLength = 100
 
     behave like fieldThatBindsValidData(

@@ -19,30 +19,30 @@ package models
 import play.api.libs.json.{OWrites, Reads, __}
 import play.api.libs.functional.syntax._
 
-case class UkAddress(AddressLineOne: String,
-                     AddressLineTwo: String,
-                     AddressLineThree: Option[String],
-                     AddressLineFour: Option[String],
-                     Postcode: String)
+case class UkAddress(addressLineOne: String,
+                     addressLineTwo: String,
+                     addressLineThree: Option[String],
+                     addressLineFour: Option[String],
+                     postcode: String)
 
 object UkAddress {
   implicit lazy val reads: Reads[UkAddress] = {
     (
-      (__ \ "AddressLineOne").read[String] and
-      (__ \ "AddressLineTwo").read[String] and
-      (__ \ "AddressLineThree").readNullable[String] and
-      (__ \ "AddressLineFour").readNullable[String] and
-      (__ \ "Postcode").read[String]
+      (__ \ "addressLineOne").read[String] and
+      (__ \ "addressLineTwo").read[String] and
+      (__ \ "addressLineThree").readNullable[String] and
+      (__ \ "addressLineFour").readNullable[String] and
+      (__ \ "postcode").read[String]
     ) (UkAddress.apply _)
   }
 
   implicit lazy val writes: OWrites[UkAddress] = {
     (
-      (__ \ "AddressLineOne").write[String] and
-      (__ \ "AddressLineTwo").write[String] and
-      (__ \ "AddressLineThree").writeNullable[String] and
-      (__ \ "AddressLineFour").writeNullable[String] and
-      (__ \ "Postcode").write[String]
+      (__ \ "addressLineOne").write[String] and
+      (__ \ "addressLineTwo").write[String] and
+      (__ \ "addressLineThree").writeNullable[String] and
+      (__ \ "addressLineFour").writeNullable[String] and
+      (__ \ "postcode").write[String]
       ) (unlift(UkAddress.unapply))
   }
 }

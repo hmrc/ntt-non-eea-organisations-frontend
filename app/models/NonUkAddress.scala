@@ -19,30 +19,30 @@ package models
 import play.api.libs.json.{OWrites, Reads, __}
 import play.api.libs.functional.syntax._
 
-case class NonUkAddress(AddressLineOne: String,
-                        AddressLineTwo: String,
-                        AddressLineThree: Option[String],
-                        AddressLineFour : Option[String],
-                        Country: String)
+case class NonUkAddress(addressLineOne: String,
+                        addressLineTwo: String,
+                        addressLineThree: Option[String],
+                        addressLineFour : Option[String],
+                        country: String)
 
 object NonUkAddress {
   implicit lazy val reads: Reads[NonUkAddress] = {
     (
-        (__ \ "AddressLineOne").read[String] and
-        (__ \ "AddressLineTwo").read[String] and
-        (__ \ "AddressLineThree").readNullable[String] and
-        (__ \ "AddressLineFour").readNullable[String] and
-        (__ \ "Country").read[String]
+        (__ \ "addressLineOne").read[String] and
+        (__ \ "addressLineTwo").read[String] and
+        (__ \ "addressLineThree").readNullable[String] and
+        (__ \ "addressLineFour").readNullable[String] and
+        (__ \ "country").read[String]
     ) (NonUkAddress.apply _)
   }
 
   implicit lazy val writes: OWrites[NonUkAddress] = {
     (
-        (__ \ "AddressLineOne").write[String] and
-        (__ \ "AddressLineTwo").write[String] and
-        (__ \ "AddressLineThree").writeNullable[String] and
-        (__ \ "AddressLineFour").writeNullable[String] and
-        (__ \ "Country").write[String]
+        (__ \ "addressLineOne").write[String] and
+        (__ \ "addressLineTwo").write[String] and
+        (__ \ "addressLineThree").writeNullable[String] and
+        (__ \ "addressLineFour").writeNullable[String] and
+        (__ \ "country").write[String]
     ) (unlift(NonUkAddress.unapply))
   }
 }

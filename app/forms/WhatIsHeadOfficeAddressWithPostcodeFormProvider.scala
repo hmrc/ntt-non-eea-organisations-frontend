@@ -26,14 +26,14 @@ class WhatIsHeadOfficeAddressWithPostcodeFormProvider @Inject() extends Mappings
 
    def apply(): Form[UkAddress] = Form(
      mapping(
-      "AddressLineOne" -> text("whatIsHeadOfficeAddressWithPostcode.error.AddressLineOne.required")
-        .verifying(maxLength(100, "whatIsHeadOfficeAddressWithPostcode.error.AddressLineOne.length")),
-      "AddressLineTwo" -> text("whatIsHeadOfficeAddressWithPostcode.error.AddressLineTwo.required")
-        .verifying(maxLength(100, "whatIsHeadOfficeAddressWithPostcode.error.AddressLineTwo.length")),
-       "AddressLineThree" -> optionalText().verifying(optMaxLength(100, "whatIsHeadOfficeAddressWithPostcode.error.AddressLineThree.length")),
-       "AddressLineFour" -> optionalText().verifying(optMaxLength(100, "whatIsHeadOfficeAddressWithPostcode.error.AddressLineFour.length")),
-       "Postcode" -> text("whatIsHeadOfficeAddressWithPostcode.error.Postcode.required")
-         .verifying(maxLength(8, "whatIsHeadOfficeAddressWithPostcode.error.Postcode.length"))
+      "addressLineOne" -> text("whatIsHeadOfficeAddressWithPostcode.error.addressLineOne.required")
+        .verifying(maxLength(100, "whatIsHeadOfficeAddressWithPostcode.error.addressLineOne.length")),
+      "addressLineTwo" -> text("whatIsHeadOfficeAddressWithPostcode.error.addressLineTwo.required")
+        .verifying(maxLength(100, "whatIsHeadOfficeAddressWithPostcode.error.addressLineTwo.length")),
+       "addressLineThree" -> optionalText().verifying(optMaxLength(100, "whatIsHeadOfficeAddressWithPostcode.error.addressLineThree.length")),
+       "addressLineFour" -> optionalText().verifying(optMaxLength(100, "whatIsHeadOfficeAddressWithPostcode.error.addressLineFour.length")),
+       "postcode" -> text("whatIsHeadOfficeAddressWithPostcode.error.postcode.required")
+         .verifying(maxLength(8, "whatIsHeadOfficeAddressWithPostcode.error.postcode.length"))
     )(UkAddress.apply)(UkAddress.unapply)
    )
  }
