@@ -17,15 +17,23 @@
 package forms
 
 import javax.inject.Inject
-
 import forms.mappings.Mappings
+import models.NonUkAddress
 import play.api.data.Form
+import play.api.data.Forms._
 
 class WhatIsHeadOfficeAddressWithCountryPickerFormProvider @Inject() extends Mappings {
 
-  def apply(): Form[String] =
-    Form(
-      "value" -> text("whatIsHeadOfficeAddressWithCountryPicker.error.required")
-        .verifying(maxLength(100, "whatIsHeadOfficeAddressWithCountryPicker.error.length"))
+  def apply(): Form[NonUkAddress] = Form(
+      mapping (
+        "AddressLineOne" -> text("whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineOne.required")
+          .verifying(maxLength(100, "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineOne.length")),
+        "AddressLineTwo" -> text("whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineTwo.required")
+          .verifying(maxLength(100, "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineTwo.length")),
+        "AddressLineThree" -> optionalText().verifying(optMaxLength(100, "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineThree.length")),
+        "AddressLineFour" -> optionalText().verifying(optMaxLength(100, "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineFour.length")),
+        "Country" -> text("whatIsHeadOfficeAddressWithCountryPicker.error.Country.required")
+          .verifying(maxLength(100, "whatIsHeadOfficeAddressWithCountryPicker.error.Country.length"))
+      ) (NonUkAddress.apply) (NonUkAddress.unapply)
     )
 }

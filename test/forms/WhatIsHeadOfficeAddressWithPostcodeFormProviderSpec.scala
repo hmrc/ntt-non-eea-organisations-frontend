@@ -76,4 +76,73 @@ class WhatIsHeadOfficeAddressWithPostcodeFormProviderSpec extends StringFieldBeh
       requiredError = FormError(fieldName, requiredKey)
     )
   }
+
+  ".AddressLineThree" - {
+
+    val fieldName = "AddressLineThree"
+
+    val lengthKey = "whatIsHeadOfficeAddressWithPostcode.error.AddressLineThree.length"
+    val maxLength = 100
+
+    behave like fieldThatBindsValidData(
+      form,
+      fieldName,
+      stringsWithMaxLength(maxLength)
+    )
+
+    behave like fieldWithMaxLength(
+      form,
+      fieldName,
+      maxLength = maxLength,
+      lengthError = FormError(fieldName, lengthKey, Seq(maxLength))
+    )
+  }
+
+  ".AddressLineFour" - {
+
+    val fieldName = "AddressLineFour"
+
+    val lengthKey = "whatIsHeadOfficeAddressWithPostcode.error.AddressLineFour.length"
+    val maxLength = 100
+
+    behave like fieldThatBindsValidData(
+      form,
+      fieldName,
+      stringsWithMaxLength(maxLength)
+    )
+
+    behave like fieldWithMaxLength(
+      form,
+      fieldName,
+      maxLength = maxLength,
+      lengthError = FormError(fieldName, lengthKey, Seq(maxLength))
+    )
+  }
+
+  ".Postcode" - {
+
+    val fieldName = "Postcode"
+    val requiredKey = "whatIsHeadOfficeAddressWithPostcode.error.Postcode.required"
+    val lengthKey = "whatIsHeadOfficeAddressWithPostcode.error.Postcode.length"
+    val maxLength = 8
+
+    behave like fieldThatBindsValidData(
+      form,
+      fieldName,
+      stringsWithMaxLength(maxLength)
+    )
+
+    behave like fieldWithMaxLength(
+      form,
+      fieldName,
+      maxLength = maxLength,
+      lengthError = FormError(fieldName, lengthKey, Seq(maxLength))
+    )
+
+    behave like mandatoryField(
+      form,
+      fieldName,
+      requiredError = FormError(fieldName, requiredKey)
+    )
+  }
 }

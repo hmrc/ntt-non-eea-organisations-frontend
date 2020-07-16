@@ -19,7 +19,7 @@ package controllers
 import base.SpecBase
 import forms.WhatIsHeadOfficeAddressWithCountryPickerFormProvider
 import matchers.JsonMatchers
-import models.{NormalMode, UserAnswers}
+import models.{NonUkAddress, NormalMode, UserAnswers}
 import navigation.{FakeNavigator, Navigator}
 import org.mockito.ArgumentCaptor
 import org.mockito.Matchers.any
@@ -80,7 +80,9 @@ class WhatIsHeadOfficeAddressWithCountryPickerControllerSpec extends SpecBase wi
       when(mockRenderer.render(any(), any())(any()))
         .thenReturn(Future.successful(Html("")))
 
-      val userAnswers = UserAnswers(userAnswersId).set(WhatIsHeadOfficeAddressWithCountryPickerPage, "answer").success.value
+      val userAnswers = UserAnswers(userAnswersId)
+        .set(WhatIsHeadOfficeAddressWithCountryPickerPage, NonUkAddress("line1", "line2", Some("line3"), Some("line4"), "country"))
+        .success.value
       val application = applicationBuilder(userAnswers = Some(userAnswers)).build()
       val request = FakeRequest(GET, whatIsHeadOfficeAddressWithCountryPickerRoute)
       val templateCaptor = ArgumentCaptor.forClass(classOf[String])
@@ -92,7 +94,13 @@ class WhatIsHeadOfficeAddressWithCountryPickerControllerSpec extends SpecBase wi
 
       verify(mockRenderer, times(1)).render(templateCaptor.capture(), jsonCaptor.capture())(any())
 
-      val filledForm = form.bind(Map("value" -> "answer"))
+      val filledForm = form.bind( Map(
+        "AddressLineOne" -> "line1",
+        "AddressLineTwo" -> "line2",
+        "AddressLineThree" -> "line3",
+        "AddressLineFour" -> "line4",
+        "Country" -> "country"
+      ))
 
       val expectedJson = Json.obj(
         "form" -> filledForm,
@@ -121,7 +129,13 @@ class WhatIsHeadOfficeAddressWithCountryPickerControllerSpec extends SpecBase wi
 
       val request =
         FakeRequest(POST, whatIsHeadOfficeAddressWithCountryPickerRoute)
-          .withFormUrlEncodedBody(("value", "answer"))
+          .withFormUrlEncodedBody(
+            ("AddressLineOne", "value 1"),
+            ("AddressLineTwo", "value 2"),
+            ("AddressLineThree", "value 3"),
+            ("AddressLineFour", "value 4"),
+            ("Country", "country")
+          )
 
       val result = route(application, request).value
 

@@ -2,6 +2,7 @@
 
 {% from "govuk/components/back-link/macro.njk"     import govukBackLink %}
 {% from "govuk/components/select/macro.njk"        import govukSelect %}
+{% from "govuk/components/input/macro.njk"         import govukInput %}
 {% from "govuk/components/button/macro.njk"        import govukButton %}
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 {% from "macros/title.njk"                         import title %}
@@ -30,15 +31,56 @@
         <form action="{{ routes.controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onSubmit(mode).url }}" method="post">
 
           {{ csrf() | safe }}
+            <h1 class="govuk-heading-xl">
+                {{ messages("whatIsHeadOfficeAddressWithCountryPicker.heading") }}
+            </h1>
+
+       {{ govukInput({
+            label: {
+              text: messages('whatIsHeadOfficeAddressWithCountryPicker.AddressLineOne')
+            },
+            id: "AddressLineOne",
+            name: "AddressLineOne",
+            value: form.AddressLineOne.value,
+            errorMessage: form.AddressLineOne.error
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: messages('whatIsHeadOfficeAddressWithPostcode.AddressLineTwo')
+            },
+            id: "AddressLineTwo",
+            name: "AddressLineTwo",
+            value: form.AddressLineTwo.value,
+            errorMessage: form.AddressLineTwo.error
+          }) }}
+
+        {{ govukInput({
+          label: {
+            text: messages('whatIsHeadOfficeAddressWithCountryPicker.AddressLineThree')
+          },
+          id: "AddressLineThree",
+          name: "AddressLineThree",
+          value: form.AddressLineThree.value,
+          errorMessage: form.AddressLineThree.error
+        }) }}
+
+         {{ govukInput({
+              label: {
+                text: messages('whatIsHeadOfficeAddressWithCountryPicker.AddressLineFour')
+              },
+              id: "AddressLineFour",
+              name: "AddressLineFour",
+              value: form.AddressLineFour.value,
+              errorMessage: form.AddressLineFour.error
+            }) }}
 
           {{ govukSelect({
             id: "country-autocomplete",
-            name: "value",
-            label: {
-              text: messages('whatIsHeadOfficeAddressWithCountryPicker.title'),
-              isPageHeading: true,
-               classes: "govuk-label--xl"
-            },
+            name: "Country",
+     label: {
+                text: messages('whatIsHeadOfficeAddressWithCountryPicker.Country')
+              },
             items: countries
            })
          }}

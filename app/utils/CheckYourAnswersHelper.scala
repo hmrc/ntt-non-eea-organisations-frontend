@@ -19,7 +19,7 @@ package utils
 import java.time.format.DateTimeFormatter
 
 import controllers.routes
-import models.{CheckMode, UkAddress, UserAnswers}
+import models.{CheckMode, NonUkAddress, UkAddress, UserAnswers}
 import pages._
 import play.api.i18n.Messages
 import CheckYourAnswersHelper._
@@ -139,7 +139,7 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers, countryService: CountrySe
     answer =>
       Row(
         key     = Key(msg"whatIsHeadOfficeAddressWithPostcode.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
-        value   = Value(address(answer)),
+        value   = Value(ukAddress(answer)),
         actions = List(
           Action(
             content            = msg"site.edit",
@@ -154,7 +154,7 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers, countryService: CountrySe
     answer =>
       Row(
         key     = Key(msg"whatIsHeadOfficeAddressWithCountryPicker.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
-        value   = Value(country(answer)),
+        value   = Value(nonUkAddress(answer)),
         actions = List(
           Action(
             content            = msg"site.edit",
@@ -210,12 +210,17 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers, countryService: CountrySe
       )
   }
 
-  private def address(address: UkAddress): Content = {
+  private def ukAddress(address: UkAddress): Content = {
     lit"${address.AddressLineOne}, ${address.AddressLineTwo}, ${address.AddressLineThree}, ${address.AddressLineFour}, ${address.Postcode}"
+  }
+  private def nonUkAddress(address: NonUkAddress): Content = {
+    lit"${address.AddressLineOne}, ${address.AddressLineTwo}, ${address.AddressLineThree}, ${address.AddressLineFour}, ${countryString(address.Country)}"
   }
 
   private def country(code: String): Content =
-    lit"${countryService.getCountryByCode(code).getOrElse("")}"
+    lit"${countryString(code)}"
+
+  private def countryString(code: String): String = s"${countryService.getCountryByCode(code).getOrElse("")}"
 
   private def yesOrNo(answer: Boolean): Content =
     if (answer) {

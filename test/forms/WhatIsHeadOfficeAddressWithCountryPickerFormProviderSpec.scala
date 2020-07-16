@@ -21,15 +21,110 @@ import play.api.data.FormError
 
 class WhatIsHeadOfficeAddressWithCountryPickerFormProviderSpec extends StringFieldBehaviours {
 
-  val requiredKey = "whatIsHeadOfficeAddressWithCountryPicker.error.required"
-  val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.length"
-  val maxLength = 100
-
   val form = new WhatIsHeadOfficeAddressWithCountryPickerFormProvider()()
 
-  ".value" - {
+  ".AddressLineOne" - {
 
-    val fieldName = "value"
+    val fieldName = "AddressLineOne"
+    val requiredKey = "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineOne.required"
+    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineOne.length"
+    val maxLength = 100
+
+    behave like fieldThatBindsValidData(
+      form,
+      fieldName,
+      stringsWithMaxLength(maxLength)
+    )
+
+    behave like fieldWithMaxLength(
+      form,
+      fieldName,
+      maxLength = maxLength,
+      lengthError = FormError(fieldName, lengthKey, Seq(maxLength))
+    )
+
+    behave like mandatoryField(
+      form,
+      fieldName,
+      requiredError = FormError(fieldName, requiredKey)
+    )
+  }
+
+  ".AddressLineTwo" - {
+
+    val fieldName = "AddressLineTwo"
+    val requiredKey = "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineTwo.required"
+    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineTwo.length"
+    val maxLength = 100
+
+    behave like fieldThatBindsValidData(
+      form,
+      fieldName,
+      stringsWithMaxLength(maxLength)
+    )
+
+    behave like fieldWithMaxLength(
+      form,
+      fieldName,
+      maxLength = maxLength,
+      lengthError = FormError(fieldName, lengthKey, Seq(maxLength))
+    )
+
+    behave like mandatoryField(
+      form,
+      fieldName,
+      requiredError = FormError(fieldName, requiredKey)
+    )
+  }
+
+  ".AddressLineThree" - {
+
+    val fieldName = "AddressLineThree"
+
+    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineThree.length"
+    val maxLength = 100
+
+    behave like fieldThatBindsValidData(
+      form,
+      fieldName,
+      stringsWithMaxLength(maxLength)
+    )
+
+    behave like fieldWithMaxLength(
+      form,
+      fieldName,
+      maxLength = maxLength,
+      lengthError = FormError(fieldName, lengthKey, Seq(maxLength))
+    )
+  }
+
+  ".AddressLineFour" - {
+
+    val fieldName = "AddressLineFour"
+
+    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineFour.length"
+    val maxLength = 100
+
+    behave like fieldThatBindsValidData(
+      form,
+      fieldName,
+      stringsWithMaxLength(maxLength)
+    )
+
+    behave like fieldWithMaxLength(
+      form,
+      fieldName,
+      maxLength = maxLength,
+      lengthError = FormError(fieldName, lengthKey, Seq(maxLength))
+    )
+  }
+
+  ".Country" - {
+
+    val fieldName = "Country"
+    val requiredKey = "whatIsHeadOfficeAddressWithCountryPicker.error.Country.required"
+    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.Country.length"
+    val maxLength = 100
 
     behave like fieldThatBindsValidData(
       form,

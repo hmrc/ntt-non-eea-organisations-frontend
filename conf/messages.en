@@ -151,9 +151,20 @@ isTheHeadOfficeLocationKnown.error.required = Select yes if the head office loca
 
 whatIsHeadOfficeAddressWithCountryPicker.title = What is the head office address?
 whatIsHeadOfficeAddressWithCountryPicker.heading = What is the head office address?
+whatIsHeadOfficeAddressWithCountryPicker.AddressLineOne = Address Line 1
+whatIsHeadOfficeAddressWithCountryPicker.AddressLineTwo = Address Line 2
+whatIsHeadOfficeAddressWithCountryPicker.AddressLineThree = Address Line 3 (Optional)
+whatIsHeadOfficeAddressWithCountryPicker.AddressLineFour = Address Line 4 (Optional)
+whatIsHeadOfficeAddressWithCountryPicker.Country = Country
 whatIsHeadOfficeAddressWithCountryPicker.checkYourAnswersLabel = What is the head office address?
-whatIsHeadOfficeAddressWithCountryPicker.error.required = Enter head office location
-whatIsHeadOfficeAddressWithCountryPicker.error.length = Head office location must be 100 characters or less
+whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineOne.required = Enter Address Line 1
+whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineOne.length = Address Line 1 must be 100 characters or less
+whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineTwo.required = Enter Address Line 2
+whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineTwo.length = Address Line 2 must be 100 characters or less
+whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineThree.length = Address Line 3 must be 100 characters or less
+whatIsHeadOfficeAddressWithCountryPicker.error.AddressLineFour.length = Address Line 4 must be 100 characters or less
+whatIsHeadOfficeAddressWithCountryPicker.error.Country.required = Enter head office location
+whatIsHeadOfficeAddressWithCountryPicker.error.Country.length = Head office location must be 100 characters or less
 
 whatIsHeadOfficeAddressWithPostcode.title = What is the head office address?
 whatIsHeadOfficeAddressWithPostcode.heading = What is the head office address?

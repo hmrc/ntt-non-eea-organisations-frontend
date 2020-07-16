@@ -16,9 +16,10 @@
 
 package pages
 
+import models.NonUkAddress
 import play.api.libs.json.JsPath
 
-case object WhatIsHeadOfficeAddressWithCountryPickerPage extends QuestionPage[String] {
+case object WhatIsHeadOfficeAddressWithCountryPickerPage extends QuestionPage[NonUkAddress] {
 
   override def path: JsPath = JsPath \ toString
 

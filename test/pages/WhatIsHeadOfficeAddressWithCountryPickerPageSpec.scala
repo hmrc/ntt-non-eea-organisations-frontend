@@ -16,6 +16,8 @@
 
 package pages
 
+import models.NonUkAddress
+import org.scalacheck.{Arbitrary, Gen}
 import pages.behaviours.PageBehaviours
 
 
@@ -23,10 +25,12 @@ class WhatIsHeadOfficeAddressWithCountryPickerPageSpec extends PageBehaviours {
 
   "WhatIsHeadOfficeAddressWithCountryPickerPage" - {
 
-    beRetrievable[String](WhatIsHeadOfficeAddressWithCountryPickerPage)
+    implicit val arb: Arbitrary[NonUkAddress] = Arbitrary(Gen.const(NonUkAddress("line1", "line2", Some("line3"), Some("line4"), "country")))
 
-    beSettable[String](WhatIsHeadOfficeAddressWithCountryPickerPage)
+    beRetrievable[NonUkAddress](WhatIsHeadOfficeAddressWithCountryPickerPage)
 
-    beRemovable[String](WhatIsHeadOfficeAddressWithCountryPickerPage)
+    beSettable[NonUkAddress](WhatIsHeadOfficeAddressWithCountryPickerPage)
+
+    beRemovable[NonUkAddress](WhatIsHeadOfficeAddressWithCountryPickerPage)
   }
 }
