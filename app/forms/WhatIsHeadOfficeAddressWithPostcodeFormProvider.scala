@@ -30,10 +30,8 @@ class WhatIsHeadOfficeAddressWithPostcodeFormProvider @Inject() extends Mappings
         .verifying(maxLength(100, "whatIsHeadOfficeAddressWithPostcode.error.AddressLineOne.length")),
       "AddressLineTwo" -> text("whatIsHeadOfficeAddressWithPostcode.error.AddressLineTwo.required")
         .verifying(maxLength(100, "whatIsHeadOfficeAddressWithPostcode.error.AddressLineTwo.length")),
-       "AddressLineThree" -> text("whatIsHeadOfficeAddressWithPostcode.error.AddressLineThree.required")
-         .verifying(maxLength(100, "whatIsHeadOfficeAddressWithPostcode.error.AddressLineThree.length")),
-       "AddressLineFour" -> text("whatIsHeadOfficeAddressWithPostcode.error.AddressLineFour.required")
-         .verifying(maxLength(100, "whatIsHeadOfficeAddressWithPostcode.error.AddressLineFour.length")),
+       "AddressLineThree" -> optionalText().verifying(optMaxLength(100, "whatIsHeadOfficeAddressWithPostcode.error.AddressLineThree.length")),
+       "AddressLineFour" -> optionalText().verifying(optMaxLength(100, "whatIsHeadOfficeAddressWithPostcode.error.AddressLineFour.length")),
        "Postcode" -> text("whatIsHeadOfficeAddressWithPostcode.error.Postcode.required")
          .verifying(maxLength(8, "whatIsHeadOfficeAddressWithPostcode.error.Postcode.length"))
     )(UkAddress.apply)(UkAddress.unapply)

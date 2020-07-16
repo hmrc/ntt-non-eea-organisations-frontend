@@ -21,8 +21,8 @@ import play.api.libs.functional.syntax._
 
 case class UkAddress(AddressLineOne: String,
                      AddressLineTwo: String,
-                     AddressLineThree: String,
-                     AddressLineFour: String,
+                     AddressLineThree: Option[String],
+                     AddressLineFour: Option[String],
                      Postcode: String)
 
 object UkAddress {
@@ -30,8 +30,8 @@ object UkAddress {
     (
       (__ \ "AddressLineOne").read[String] and
       (__ \ "AddressLineTwo").read[String] and
-      (__ \ "AddressLineThree").read[String] and
-      (__ \ "AddressLineFour").read[String] and
+      (__ \ "AddressLineThree").readNullable[String] and
+      (__ \ "AddressLineFour").readNullable[String] and
       (__ \ "Postcode").read[String]
     ) (UkAddress.apply _)
   }
@@ -40,8 +40,8 @@ object UkAddress {
     (
       (__ \ "AddressLineOne").write[String] and
       (__ \ "AddressLineTwo").write[String] and
-      (__ \ "AddressLineThree").write[String] and
-      (__ \ "AddressLineFour").write[String] and
+      (__ \ "AddressLineThree").writeNullable[String] and
+      (__ \ "AddressLineFour").writeNullable[String] and
       (__ \ "Postcode").write[String]
       ) (unlift(UkAddress.unapply))
   }

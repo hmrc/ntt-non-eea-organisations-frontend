@@ -90,7 +90,9 @@ class WhatIsHeadOfficeAddressWithPostcodeControllerSpec extends SpecBase with Mo
       when(mockRenderer.render(any(), any())(any()))
         .thenReturn(Future.successful(Html("")))
 
-      val userAnswers = UserAnswers(userAnswersId).set(WhatIsHeadOfficeAddressWithPostcodePage, UkAddress("line1", "line2", "line3", "line4", "postcode")).success.value
+      val userAnswers = UserAnswers(userAnswersId)
+        .set(WhatIsHeadOfficeAddressWithPostcodePage, UkAddress("line1", "line2", Some("line3"), Some("line4"), "postcode"))
+        .success.value
       val application = applicationBuilder(userAnswers = Some(userAnswers)).build()
       val request = FakeRequest(GET, whatIsHeadOfficeAddressWithPostcodeRoute)
       val templateCaptor = ArgumentCaptor.forClass(classOf[String])

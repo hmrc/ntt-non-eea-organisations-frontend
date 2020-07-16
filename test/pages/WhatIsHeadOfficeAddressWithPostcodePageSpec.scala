@@ -24,7 +24,7 @@ class WhatIsHeadOfficeAddressWithPostcodePageSpec extends PageBehaviours {
 
   "WhatIsHeadOfficeAddressWithPostcodePage" - {
 
-    implicit val arb: Arbitrary[UkAddress] = Arbitrary(Gen.const(UkAddress("line1", "line2", "line3", "line4", "postcode")))
+    implicit val arb: Arbitrary[UkAddress] = Arbitrary(Gen.const(UkAddress("line1", "line2", Some("line3"), Some("line4"), "postcode")))
 
     beRetrievable[UkAddress](WhatIsHeadOfficeAddressWithPostcodePage)
 
