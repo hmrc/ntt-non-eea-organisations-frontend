@@ -48,5 +48,4 @@ class NameValuePairSpec extends PlaySpec {
       Json.toJson(exampleModel) mustBe Json.parse(exampleJson)
     }
   }
-
 }

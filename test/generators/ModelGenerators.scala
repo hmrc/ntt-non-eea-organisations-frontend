@@ -30,8 +30,8 @@ trait ModelGenerators {
   implicit lazy val arbitraryWhatIsHeadOfficeAddressWithPostcode: Arbitrary[WhatIsHeadOfficeAddressWithPostcode] =
     Arbitrary {
       for {
-        AddressLineOne <- arbitrary[String]
-        AddressLineTwo <- arbitrary[String]
-      } yield WhatIsHeadOfficeAddressWithPostcode(AddressLineOne, AddressLineTwo)
+        addressLineOne <- arbitrary[String]
+        addressLineTwo <- arbitrary[String]
+      } yield WhatIsHeadOfficeAddressWithPostcode(addressLineOne, addressLineTwo)
     }
 }

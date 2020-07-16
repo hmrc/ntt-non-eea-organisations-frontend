@@ -26,7 +26,6 @@ import play.api.data.validation.{Invalid, Valid}
 
 class ConstraintsSpec extends FreeSpec with MustMatchers with ScalaCheckPropertyChecks with Generators  with Constraints {
 
-
   "firstError" - {
 
     "must return Valid when all constraints pass" in {
