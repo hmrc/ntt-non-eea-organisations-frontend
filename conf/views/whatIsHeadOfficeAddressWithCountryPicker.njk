@@ -5,12 +5,13 @@
 {% from "govuk/components/input/macro.njk"         import govukInput %}
 {% from "govuk/components/button/macro.njk"        import govukButton %}
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+{% from "govuk/components/fieldset/macro.njk"      import govukFieldset %}
 {% from "macros/title.njk"                         import title %}
 
 {% block pageTitle %}
   {{ title(messages("whatIsHeadOfficeAddressWithCountryPicker.title"), form.errors) }}
 {% endblock %}
-
+\
 {% block mainContent %}
 
   {{ govukBackLink({
@@ -30,10 +31,14 @@
 
         <form action="{{ routes.controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onSubmit(mode).url }}" method="post">
 
+        {% call govukFieldset({
+          legend: {
+            text: messages("whatIsHeadOfficeAddressWithCountryPicker.title"),
+            classes: "govuk-label--xl",
+            isPageHeading: true
+          }
+        }) %}
           {{ csrf() | safe }}
-            <h1 class="govuk-heading-xl">
-                {{ messages("whatIsHeadOfficeAddressWithCountryPicker.heading") }}
-            </h1>
 
        {{ govukInput({
             label: {
@@ -89,6 +94,8 @@
           {{ govukButton({
             text: messages("site.continue")
           }) }}
+
+        {% endcall %}
 
         </form>
 
