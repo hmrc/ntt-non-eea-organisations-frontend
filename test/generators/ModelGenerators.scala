@@ -27,11 +27,11 @@ trait ModelGenerators {
       Gen.oneOf(DoYouWantToAddAnotherNonEEAOrganisation.values.toSeq)
     }
 
-  implicit lazy val arbitraryWhatIsHeadOfficeAddressWithPostcode: Arbitrary[WhatIsHeadOfficeAddressWithPostcode] =
+  implicit lazy val arbitraryWhatIsHeadOfficeAddressUk: Arbitrary[WhatIsHeadOfficeAddressUk] =
     Arbitrary {
       for {
         addressLineOne <- arbitrary[String]
         addressLineTwo <- arbitrary[String]
-      } yield WhatIsHeadOfficeAddressWithPostcode(addressLineOne, addressLineTwo)
+      } yield WhatIsHeadOfficeAddressUk(addressLineOne, addressLineTwo)
     }
 }

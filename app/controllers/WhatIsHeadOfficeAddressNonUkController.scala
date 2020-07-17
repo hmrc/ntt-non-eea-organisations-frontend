@@ -17,11 +17,11 @@
 package controllers
 
 import controllers.actions._
-import forms.WhatIsHeadOfficeAddressWithCountryPickerFormProvider
+import forms.WhatIsHeadOfficeAddressNonUkFormProvider
 import javax.inject.Inject
 import models.Mode
 import navigation.Navigator
-import pages.WhatIsHeadOfficeAddressWithCountryPickerPage
+import pages.WhatIsHeadOfficeAddressNonUkPage
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.libs.json.Json
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
@@ -33,14 +33,14 @@ import uk.gov.hmrc.viewmodels.NunjucksSupport
 
 import scala.concurrent.{ExecutionContext, Future}
 
-class WhatIsHeadOfficeAddressWithCountryPickerController @Inject()(
+class WhatIsHeadOfficeAddressNonUkController @Inject()(
                                                                     override val messagesApi: MessagesApi,
                                                                     sessionRepository: SessionRepository,
                                                                     navigator: Navigator,
                                                                     identify: IdentifierAction,
                                                                     getData: DataRetrievalAction,
                                                                     requireData: DataRequiredAction,
-                                                                    formProvider: WhatIsHeadOfficeAddressWithCountryPickerFormProvider,
+                                                                    formProvider: WhatIsHeadOfficeAddressNonUkFormProvider,
                                                                     val controllerComponents: MessagesControllerComponents,
                                                                     renderer: Renderer,
                                                                     override val countryService: CountryService
@@ -51,7 +51,7 @@ class WhatIsHeadOfficeAddressWithCountryPickerController @Inject()(
   def onPageLoad(mode: Mode): Action[AnyContent] = (identify andThen getData andThen requireData).async {
     implicit request =>
 
-      val existingAnswer = request.userAnswers.get(WhatIsHeadOfficeAddressWithCountryPickerPage)
+      val existingAnswer = request.userAnswers.get(WhatIsHeadOfficeAddressNonUkPage)
 
       val preparedForm = existingAnswer match {
         case None => form
@@ -64,7 +64,7 @@ class WhatIsHeadOfficeAddressWithCountryPickerController @Inject()(
         "countries" -> countries(messages = request2Messages(request), selected = existingAnswer.map(x => x.country))
       )
 
-      renderer.render("whatIsHeadOfficeAddressWithCountryPicker.njk", json).map(Ok(_))
+      renderer.render("whatIsHeadOfficeAddressNonUk.njk", json).map(Ok(_))
   }
 
   def onSubmit(mode: Mode): Action[AnyContent] = (identify andThen getData andThen requireData).async {
@@ -79,13 +79,13 @@ class WhatIsHeadOfficeAddressWithCountryPickerController @Inject()(
             "countries" -> countries(messages = request2Messages(request))
           )
 
-          renderer.render("whatIsHeadOfficeAddressWithCountryPicker.njk", json).map(BadRequest(_))
+          renderer.render("whatIsHeadOfficeAddressNonUk.njk", json).map(BadRequest(_))
         },
         value =>
           for {
-            updatedAnswers <- Future.fromTry(request.userAnswers.set(WhatIsHeadOfficeAddressWithCountryPickerPage, value))
+            updatedAnswers <- Future.fromTry(request.userAnswers.set(WhatIsHeadOfficeAddressNonUkPage, value))
             _              <- sessionRepository.set(updatedAnswers)
-          } yield Redirect(navigator.nextPage(WhatIsHeadOfficeAddressWithCountryPickerPage, mode, updatedAnswers))
+          } yield Redirect(navigator.nextPage(WhatIsHeadOfficeAddressNonUkPage, mode, updatedAnswers))
       )
   }
 }

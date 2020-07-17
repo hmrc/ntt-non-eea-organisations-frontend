@@ -16,20 +16,20 @@
 
 package pages
 
-import models.{UkAddress, WhatIsHeadOfficeAddressWithPostcode}
+import models.{UkAddress, WhatIsHeadOfficeAddressUk}
 import org.scalacheck.{Arbitrary, Gen}
 import pages.behaviours.PageBehaviours
 
-class WhatIsHeadOfficeAddressWithPostcodePageSpec extends PageBehaviours {
+class WhatIsHeadOfficeAddressUkPageSpec extends PageBehaviours {
 
-  "WhatIsHeadOfficeAddressWithPostcodePage" - {
+  "WhatIsHeadOfficeAddressUkPage" - {
 
     implicit val arb: Arbitrary[UkAddress] = Arbitrary(Gen.const(UkAddress("line1", "line2", Some("line3"), Some("line4"), "postcode")))
 
-    beRetrievable[UkAddress](WhatIsHeadOfficeAddressWithPostcodePage)
+    beRetrievable[UkAddress](WhatIsHeadOfficeAddressUkPage)
 
-    beSettable[UkAddress](WhatIsHeadOfficeAddressWithPostcodePage)
+    beSettable[UkAddress](WhatIsHeadOfficeAddressUkPage)
 
-    beRemovable[UkAddress](WhatIsHeadOfficeAddressWithPostcodePage)
+    beRemovable[UkAddress](WhatIsHeadOfficeAddressUkPage)
   }
 }

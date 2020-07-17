@@ -16,21 +16,12 @@
 
 package pages
 
-import models.NonUkAddress
-import org.scalacheck.{Arbitrary, Gen}
-import pages.behaviours.PageBehaviours
+import models.{UkAddress, WhatIsHeadOfficeAddressUk}
+import play.api.libs.json.JsPath
 
+case object WhatIsHeadOfficeAddressUkPage extends QuestionPage[UkAddress] {
 
-class WhatIsHeadOfficeAddressWithCountryPickerPageSpec extends PageBehaviours {
+  override def path: JsPath = JsPath \ toString
 
-  "WhatIsHeadOfficeAddressWithCountryPickerPage" - {
-
-    implicit val arb: Arbitrary[NonUkAddress] = Arbitrary(Gen.const(NonUkAddress("line1", "line2", Some("line3"), Some("line4"), "country")))
-
-    beRetrievable[NonUkAddress](WhatIsHeadOfficeAddressWithCountryPickerPage)
-
-    beSettable[NonUkAddress](WhatIsHeadOfficeAddressWithCountryPickerPage)
-
-    beRemovable[NonUkAddress](WhatIsHeadOfficeAddressWithCountryPickerPage)
-  }
+  override def toString: String = "whatIsHeadOfficeAddressUk"
 }

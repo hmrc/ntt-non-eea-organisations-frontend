@@ -17,7 +17,7 @@
 package controllers
 
 import base.SpecBase
-import forms.WhatIsHeadOfficeAddressWithCountryPickerFormProvider
+import forms.WhatIsHeadOfficeAddressNonUkFormProvider
 import matchers.JsonMatchers
 import models.{NonUkAddress, NormalMode, UserAnswers}
 import navigation.{FakeNavigator, Navigator}
@@ -25,7 +25,7 @@ import org.mockito.ArgumentCaptor
 import org.mockito.Matchers.any
 import org.mockito.Mockito.{times, verify, when}
 import org.scalatestplus.mockito.MockitoSugar
-import pages.WhatIsHeadOfficeAddressWithCountryPickerPage
+import pages.WhatIsHeadOfficeAddressNonUkPage
 import play.api.inject.bind
 import play.api.libs.json.{JsObject, JsString, Json}
 import play.api.mvc.Call
@@ -37,16 +37,16 @@ import uk.gov.hmrc.viewmodels.NunjucksSupport
 
 import scala.concurrent.Future
 
-class WhatIsHeadOfficeAddressWithCountryPickerControllerSpec extends SpecBase with MockitoSugar with NunjucksSupport with JsonMatchers {
+class WhatIsHeadOfficeAddressNonUkControllerSpec extends SpecBase with MockitoSugar with NunjucksSupport with JsonMatchers {
 
   def onwardRoute = Call("GET", "/foo")
 
-  val formProvider = new WhatIsHeadOfficeAddressWithCountryPickerFormProvider()
+  val formProvider = new WhatIsHeadOfficeAddressNonUkFormProvider()
   val form = formProvider()
 
-  lazy val whatIsHeadOfficeAddressWithCountryPickerRoute = routes.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(NormalMode).url
+  lazy val whatIsHeadOfficeAddressNonUkRoute = routes.WhatIsHeadOfficeAddressNonUkController.onPageLoad(NormalMode).url
 
-  "WhatIsHeadOfficeAddressWithCountryPicker Controller" - {
+  "WhatIsHeadOfficeAddressNonUk Controller" - {
 
     "must return OK and the correct view for a GET" in {
 
@@ -54,7 +54,7 @@ class WhatIsHeadOfficeAddressWithCountryPickerControllerSpec extends SpecBase wi
         .thenReturn(Future.successful(Html("")))
 
       val application = applicationBuilder(userAnswers = Some(emptyUserAnswers)).build()
-      val request = FakeRequest(GET, whatIsHeadOfficeAddressWithCountryPickerRoute)
+      val request = FakeRequest(GET, whatIsHeadOfficeAddressNonUkRoute)
       val templateCaptor = ArgumentCaptor.forClass(classOf[String])
       val jsonCaptor = ArgumentCaptor.forClass(classOf[JsObject])
 
@@ -69,7 +69,7 @@ class WhatIsHeadOfficeAddressWithCountryPickerControllerSpec extends SpecBase wi
         "mode" -> NormalMode
       )
 
-      templateCaptor.getValue mustEqual "whatIsHeadOfficeAddressWithCountryPicker.njk"
+      templateCaptor.getValue mustEqual "whatIsHeadOfficeAddressNonUk.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()
@@ -81,10 +81,10 @@ class WhatIsHeadOfficeAddressWithCountryPickerControllerSpec extends SpecBase wi
         .thenReturn(Future.successful(Html("")))
 
       val userAnswers = UserAnswers(userAnswersId)
-        .set(WhatIsHeadOfficeAddressWithCountryPickerPage, NonUkAddress("line1", "line2", Some("line3"), Some("line4"), "country"))
+        .set(WhatIsHeadOfficeAddressNonUkPage, NonUkAddress("line1", "line2", Some("line3"), Some("line4"), "country"))
         .success.value
       val application = applicationBuilder(userAnswers = Some(userAnswers)).build()
-      val request = FakeRequest(GET, whatIsHeadOfficeAddressWithCountryPickerRoute)
+      val request = FakeRequest(GET, whatIsHeadOfficeAddressNonUkRoute)
       val templateCaptor = ArgumentCaptor.forClass(classOf[String])
       val jsonCaptor = ArgumentCaptor.forClass(classOf[JsObject])
 
@@ -107,7 +107,7 @@ class WhatIsHeadOfficeAddressWithCountryPickerControllerSpec extends SpecBase wi
         "mode" -> NormalMode
       )
 
-      templateCaptor.getValue mustEqual "whatIsHeadOfficeAddressWithCountryPicker.njk"
+      templateCaptor.getValue mustEqual "whatIsHeadOfficeAddressNonUk.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()
@@ -128,7 +128,7 @@ class WhatIsHeadOfficeAddressWithCountryPickerControllerSpec extends SpecBase wi
           .build()
 
       val request =
-        FakeRequest(POST, whatIsHeadOfficeAddressWithCountryPickerRoute)
+        FakeRequest(POST, whatIsHeadOfficeAddressNonUkRoute)
           .withFormUrlEncodedBody(
             ("addressLineOne", "value 1"),
             ("addressLineTwo", "value 2"),
@@ -151,7 +151,7 @@ class WhatIsHeadOfficeAddressWithCountryPickerControllerSpec extends SpecBase wi
         .thenReturn(Future.successful(Html("")))
 
       val application = applicationBuilder(userAnswers = Some(emptyUserAnswers)).build()
-      val request = FakeRequest(POST, whatIsHeadOfficeAddressWithCountryPickerRoute).withFormUrlEncodedBody(("value", ""))
+      val request = FakeRequest(POST, whatIsHeadOfficeAddressNonUkRoute).withFormUrlEncodedBody(("value", ""))
       val boundForm = form.bind(Map("value" -> ""))
       val templateCaptor = ArgumentCaptor.forClass(classOf[String])
       val jsonCaptor = ArgumentCaptor.forClass(classOf[JsObject])
@@ -167,7 +167,7 @@ class WhatIsHeadOfficeAddressWithCountryPickerControllerSpec extends SpecBase wi
         "mode" -> NormalMode
       )
 
-      templateCaptor.getValue mustEqual "whatIsHeadOfficeAddressWithCountryPicker.njk"
+      templateCaptor.getValue mustEqual "whatIsHeadOfficeAddressNonUk.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()
@@ -177,7 +177,7 @@ class WhatIsHeadOfficeAddressWithCountryPickerControllerSpec extends SpecBase wi
 
       val application = applicationBuilder(userAnswers = None).build()
 
-      val request = FakeRequest(GET, whatIsHeadOfficeAddressWithCountryPickerRoute)
+      val request = FakeRequest(GET, whatIsHeadOfficeAddressNonUkRoute)
 
       val result = route(application, request).value
 
@@ -193,7 +193,7 @@ class WhatIsHeadOfficeAddressWithCountryPickerControllerSpec extends SpecBase wi
       val application = applicationBuilder(userAnswers = None).build()
 
       val request =
-        FakeRequest(POST, whatIsHeadOfficeAddressWithCountryPickerRoute)
+        FakeRequest(POST, whatIsHeadOfficeAddressNonUkRoute)
           .withFormUrlEncodedBody(("value", "answer"))
 
       val result = route(application, request).value

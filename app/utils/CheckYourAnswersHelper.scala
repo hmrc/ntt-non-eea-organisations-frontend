@@ -135,31 +135,31 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers, countryService: CountrySe
       )
   }
 
-  def whatIsHeadOfficeAddressUk: Option[Row] = userAnswers.get(WhatIsHeadOfficeAddressWithPostcodePage) map {
+  def whatIsHeadOfficeAddressUk: Option[Row] = userAnswers.get(WhatIsHeadOfficeAddressUkPage) map {
     answer =>
       Row(
-        key     = Key(msg"whatIsHeadOfficeAddressWithPostcode.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
+        key     = Key(msg"whatIsHeadOfficeAddressUk.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
         value   = Value(ukAddress(answer)),
         actions = List(
           Action(
             content            = msg"site.edit",
-            href               = routes.WhatIsHeadOfficeAddressWithPostcodeController.onPageLoad(CheckMode).url,
-            visuallyHiddenText = Some(msg"site.edit.hidden".withArgs(msg"whatIsHeadOfficeAddressWithPostcode.checkYourAnswersLabel"))
+            href               = routes.WhatIsHeadOfficeAddressUkController.onPageLoad(CheckMode).url,
+            visuallyHiddenText = Some(msg"site.edit.hidden".withArgs(msg"whatIsHeadOfficeAddressUk.checkYourAnswersLabel"))
           )
         )
       )
   }
 
-  def whatIsHeadOfficeAddressNonUk: Option[Row] = userAnswers.get(WhatIsHeadOfficeAddressWithCountryPickerPage) map {
+  def whatIsHeadOfficeAddressNonUk: Option[Row] = userAnswers.get(WhatIsHeadOfficeAddressNonUkPage) map {
     answer =>
       Row(
-        key     = Key(msg"whatIsHeadOfficeAddressWithCountryPicker.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
+        key     = Key(msg"whatIsHeadOfficeAddressNonUk.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
         value   = Value(nonUkAddress(answer)),
         actions = List(
           Action(
             content            = msg"site.edit",
-            href               = routes.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(CheckMode).url,
-            visuallyHiddenText = Some(msg"site.edit.hidden".withArgs(msg"whatIsHeadOfficeAddressWithCountryPicker.checkYourAnswersLabel"))
+            href               = routes.WhatIsHeadOfficeAddressNonUkController.onPageLoad(CheckMode).url,
+            visuallyHiddenText = Some(msg"site.edit.hidden".withArgs(msg"whatIsHeadOfficeAddressNonUk.checkYourAnswersLabel"))
           )
         )
       )

@@ -17,15 +17,15 @@
 package controllers
 
 import base.SpecBase
-import forms.WhatIsHeadOfficeAddressWithPostcodeFormProvider
+import forms.WhatIsHeadOfficeAddressUkFormProvider
 import matchers.JsonMatchers
-import models.{NormalMode, UkAddress, UserAnswers, WhatIsHeadOfficeAddressWithPostcode}
+import models.{NormalMode, UkAddress, UserAnswers, WhatIsHeadOfficeAddressUk}
 import navigation.{FakeNavigator, Navigator}
 import org.mockito.ArgumentCaptor
 import org.mockito.Matchers.any
 import org.mockito.Mockito.{times, verify, when}
 import org.scalatestplus.mockito.MockitoSugar
-import pages.WhatIsHeadOfficeAddressWithPostcodePage
+import pages.WhatIsHeadOfficeAddressUkPage
 import play.api.inject.bind
 import play.api.libs.json.{JsObject, Json}
 import play.api.mvc.Call
@@ -37,26 +37,26 @@ import uk.gov.hmrc.viewmodels.NunjucksSupport
 
 import scala.concurrent.Future
 
-class WhatIsHeadOfficeAddressWithPostcodeControllerSpec extends SpecBase with MockitoSugar with NunjucksSupport with JsonMatchers {
+class WhatIsHeadOfficeAddressUkControllerSpec extends SpecBase with MockitoSugar with NunjucksSupport with JsonMatchers {
 
   def onwardRoute = Call("GET", "/foo")
 
-  val formProvider = new WhatIsHeadOfficeAddressWithPostcodeFormProvider()
+  val formProvider = new WhatIsHeadOfficeAddressUkFormProvider()
   val form = formProvider()
 
-  lazy val whatIsHeadOfficeAddressWithPostcodeRoute = routes.WhatIsHeadOfficeAddressWithPostcodeController.onPageLoad(NormalMode).url
+  lazy val whatIsHeadOfficeAddressUkRoute = routes.WhatIsHeadOfficeAddressUkController.onPageLoad(NormalMode).url
 
   val userAnswers = UserAnswers(
     userAnswersId,
     Json.obj(
-      WhatIsHeadOfficeAddressWithPostcodePage.toString -> Json.obj(
+      WhatIsHeadOfficeAddressUkPage.toString -> Json.obj(
         "addressLineOne" -> "value 1",
         "addressLineTwo" -> "value 2"
       )
     )
   )
 
-  "WhatIsHeadOfficeAddressWithPostcode Controller" - {
+  "WhatIsHeadOfficeAddressUk Controller" - {
 
     "must return OK and the correct view for a GET" in {
 
@@ -64,7 +64,7 @@ class WhatIsHeadOfficeAddressWithPostcodeControllerSpec extends SpecBase with Mo
         .thenReturn(Future.successful(Html("")))
 
       val application = applicationBuilder(userAnswers = Some(emptyUserAnswers)).build()
-      val request = FakeRequest(GET, whatIsHeadOfficeAddressWithPostcodeRoute)
+      val request = FakeRequest(GET, whatIsHeadOfficeAddressUkRoute)
       val templateCaptor = ArgumentCaptor.forClass(classOf[String])
       val jsonCaptor = ArgumentCaptor.forClass(classOf[JsObject])
 
@@ -79,7 +79,7 @@ class WhatIsHeadOfficeAddressWithPostcodeControllerSpec extends SpecBase with Mo
         "mode" -> NormalMode
       )
 
-      templateCaptor.getValue mustEqual "whatIsHeadOfficeAddressWithPostcode.njk"
+      templateCaptor.getValue mustEqual "whatIsHeadOfficeAddressUk.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()
@@ -91,10 +91,10 @@ class WhatIsHeadOfficeAddressWithPostcodeControllerSpec extends SpecBase with Mo
         .thenReturn(Future.successful(Html("")))
 
       val userAnswers = UserAnswers(userAnswersId)
-        .set(WhatIsHeadOfficeAddressWithPostcodePage, UkAddress("line1", "line2", Some("line3"), Some("line4"), "postcode"))
+        .set(WhatIsHeadOfficeAddressUkPage, UkAddress("line1", "line2", Some("line3"), Some("line4"), "postcode"))
         .success.value
       val application = applicationBuilder(userAnswers = Some(userAnswers)).build()
-      val request = FakeRequest(GET, whatIsHeadOfficeAddressWithPostcodeRoute)
+      val request = FakeRequest(GET, whatIsHeadOfficeAddressUkRoute)
       val templateCaptor = ArgumentCaptor.forClass(classOf[String])
       val jsonCaptor = ArgumentCaptor.forClass(classOf[JsObject])
 
@@ -119,7 +119,7 @@ class WhatIsHeadOfficeAddressWithPostcodeControllerSpec extends SpecBase with Mo
         "mode" -> NormalMode
       )
 
-      templateCaptor.getValue mustEqual "whatIsHeadOfficeAddressWithPostcode.njk"
+      templateCaptor.getValue mustEqual "whatIsHeadOfficeAddressUk.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
       application.stop()
@@ -141,7 +141,7 @@ class WhatIsHeadOfficeAddressWithPostcodeControllerSpec extends SpecBase with Mo
 
 
       val request =
-        FakeRequest(POST, whatIsHeadOfficeAddressWithPostcodeRoute)
+        FakeRequest(POST, whatIsHeadOfficeAddressUkRoute)
           .withFormUrlEncodedBody(
             ("addressLineOne", "value 1"),
             ("addressLineTwo", "value 2"),
@@ -165,7 +165,7 @@ class WhatIsHeadOfficeAddressWithPostcodeControllerSpec extends SpecBase with Mo
         .thenReturn(Future.successful(Html("")))
 
       val application = applicationBuilder(userAnswers = Some(emptyUserAnswers)).build()
-      val request = FakeRequest(POST, whatIsHeadOfficeAddressWithPostcodeRoute).withFormUrlEncodedBody(("value", "invalid value"))
+      val request = FakeRequest(POST, whatIsHeadOfficeAddressUkRoute).withFormUrlEncodedBody(("value", "invalid value"))
       val boundForm = form.bind(Map("value" -> "invalid value"))
       val templateCaptor = ArgumentCaptor.forClass(classOf[String])
       val jsonCaptor = ArgumentCaptor.forClass(classOf[JsObject])
@@ -181,7 +181,7 @@ class WhatIsHeadOfficeAddressWithPostcodeControllerSpec extends SpecBase with Mo
         "mode"   -> NormalMode
       )
 
-      templateCaptor.getValue mustEqual "whatIsHeadOfficeAddressWithPostcode.njk"
+      templateCaptor.getValue mustEqual "whatIsHeadOfficeAddressUk.njk"
       jsonCaptor.getValue must containJson(expectedJson)
 
        application.stop()
@@ -191,7 +191,7 @@ class WhatIsHeadOfficeAddressWithPostcodeControllerSpec extends SpecBase with Mo
 
       val application = applicationBuilder(userAnswers = None).build()
 
-      val request = FakeRequest(GET, whatIsHeadOfficeAddressWithPostcodeRoute)
+      val request = FakeRequest(GET, whatIsHeadOfficeAddressUkRoute)
 
       val result = route(application, request).value
 
@@ -206,7 +206,7 @@ class WhatIsHeadOfficeAddressWithPostcodeControllerSpec extends SpecBase with Mo
       val application = applicationBuilder(userAnswers = None).build()
 
       val request =
-        FakeRequest(POST, whatIsHeadOfficeAddressWithPostcodeRoute)
+        FakeRequest(POST, whatIsHeadOfficeAddressUkRoute)
           .withFormUrlEncodedBody(("addressLineOne", "value 1"), ("addressLineTwo", "value 2"))
 
       val result = route(application, request).value

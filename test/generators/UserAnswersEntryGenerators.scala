@@ -80,18 +80,18 @@ trait UserAnswersEntryGenerators extends PageGenerators with ModelGenerators {
       } yield (page, value)
     }
 
-  implicit lazy val arbitraryWhatIsHeadOfficeAddressWithPostcodeUserAnswersEntry: Arbitrary[(WhatIsHeadOfficeAddressWithPostcodePage.type, JsValue)] =
+  implicit lazy val arbitraryWhatIsHeadOfficeAddressUkUserAnswersEntry: Arbitrary[(WhatIsHeadOfficeAddressUkPage.type, JsValue)] =
     Arbitrary {
       for {
-        page  <- arbitrary[WhatIsHeadOfficeAddressWithPostcodePage.type]
-        value <- arbitrary[WhatIsHeadOfficeAddressWithPostcode].map(Json.toJson(_))
+        page  <- arbitrary[WhatIsHeadOfficeAddressUkPage.type]
+        value <- arbitrary[WhatIsHeadOfficeAddressUk].map(Json.toJson(_))
       } yield (page, value)
     }
 
-  implicit lazy val arbitraryWhatIsHeadOfficeAddressWithCountryPickerUserAnswersEntry: Arbitrary[(WhatIsHeadOfficeAddressWithCountryPickerPage.type, JsValue)] =
+  implicit lazy val arbitraryWhatIsHeadOfficeAddressNonUkUserAnswersEntry: Arbitrary[(WhatIsHeadOfficeAddressNonUkPage.type, JsValue)] =
     Arbitrary {
       for {
-        page  <- arbitrary[WhatIsHeadOfficeAddressWithCountryPickerPage.type]
+        page  <- arbitrary[WhatIsHeadOfficeAddressNonUkPage.type]
         value <- arbitrary[String].suchThat(_.nonEmpty).map(Json.toJson(_))
       } yield (page, value)
     }

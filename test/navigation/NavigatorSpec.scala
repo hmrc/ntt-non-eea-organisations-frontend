@@ -88,22 +88,22 @@ class NavigatorSpec extends SpecBase with ScalaCheckPropertyChecks with Generato
         forAll(arbitrary[UserAnswers]) {
           answers =>
             navigator.nextPage(IsHeadOfficeInUKPage, NormalMode, answers)
-              .mustBe(routes.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(NormalMode))
+              .mustBe(routes.WhatIsHeadOfficeAddressNonUkController.onPageLoad(NormalMode))
         }
       }
 
       "must go from Head office address with country picker, to Head office address with postcode" in {
         forAll(arbitrary[UserAnswers]) {
           answers =>
-            navigator.nextPage(WhatIsHeadOfficeAddressWithCountryPickerPage, NormalMode, answers)
-              .mustBe(routes.WhatIsHeadOfficeAddressWithPostcodeController.onPageLoad(NormalMode))
+            navigator.nextPage(WhatIsHeadOfficeAddressNonUkPage, NormalMode, answers)
+              .mustBe(routes.WhatIsHeadOfficeAddressUkController.onPageLoad(NormalMode))
         }
       }
 
       "must go from Head office address with postcode to Is governing country known" in {
         forAll(arbitrary[UserAnswers]) {
           answers =>
-            navigator.nextPage(WhatIsHeadOfficeAddressWithPostcodePage, NormalMode, answers)
+            navigator.nextPage(WhatIsHeadOfficeAddressUkPage, NormalMode, answers)
               .mustBe(routes.IsTheGoverningCountryKnownController.onPageLoad(NormalMode))
         }
       }

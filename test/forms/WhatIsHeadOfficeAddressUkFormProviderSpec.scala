@@ -19,15 +19,15 @@ package forms
 import forms.behaviours.StringFieldBehaviours
 import play.api.data.FormError
 
-class WhatIsHeadOfficeAddressWithPostcodeFormProviderSpec extends StringFieldBehaviours {
+class WhatIsHeadOfficeAddressUkFormProviderSpec extends StringFieldBehaviours {
 
-  val form = new WhatIsHeadOfficeAddressWithPostcodeFormProvider()()
+  val form = new WhatIsHeadOfficeAddressUkFormProvider()()
 
   ".addressLineOne" - {
 
     val fieldName = "addressLineOne"
-    val requiredKey = "whatIsHeadOfficeAddressWithPostcode.error.addressLineOne.required"
-    val lengthKey = "whatIsHeadOfficeAddressWithPostcode.error.addressLineOne.length"
+    val requiredKey = "whatIsHeadOfficeAddressUk.error.addressLineOne.required"
+    val lengthKey = "whatIsHeadOfficeAddressUk.error.addressLineOne.length"
     val maxLength = 100
 
     behave like fieldThatBindsValidData(
@@ -53,8 +53,8 @@ class WhatIsHeadOfficeAddressWithPostcodeFormProviderSpec extends StringFieldBeh
   ".addressLineTwo" - {
 
     val fieldName = "addressLineTwo"
-    val requiredKey = "whatIsHeadOfficeAddressWithPostcode.error.addressLineTwo.required"
-    val lengthKey = "whatIsHeadOfficeAddressWithPostcode.error.addressLineTwo.length"
+    val requiredKey = "whatIsHeadOfficeAddressUk.error.addressLineTwo.required"
+    val lengthKey = "whatIsHeadOfficeAddressUk.error.addressLineTwo.length"
     val maxLength = 100
 
     behave like fieldThatBindsValidData(
@@ -81,7 +81,7 @@ class WhatIsHeadOfficeAddressWithPostcodeFormProviderSpec extends StringFieldBeh
 
     val fieldName = "addressLineThree"
 
-    val lengthKey = "whatIsHeadOfficeAddressWithPostcode.error.addressLineThree.length"
+    val lengthKey = "whatIsHeadOfficeAddressUk.error.addressLineThree.length"
     val maxLength = 100
 
     behave like fieldThatBindsValidData(
@@ -102,7 +102,7 @@ class WhatIsHeadOfficeAddressWithPostcodeFormProviderSpec extends StringFieldBeh
 
     val fieldName = "addressLineFour"
 
-    val lengthKey = "whatIsHeadOfficeAddressWithPostcode.error.addressLineFour.length"
+    val lengthKey = "whatIsHeadOfficeAddressUk.error.addressLineFour.length"
     val maxLength = 100
 
     behave like fieldThatBindsValidData(
@@ -122,8 +122,8 @@ class WhatIsHeadOfficeAddressWithPostcodeFormProviderSpec extends StringFieldBeh
   ".postcode" - {
 
     val fieldName = "postcode"
-    val requiredKey = "whatIsHeadOfficeAddressWithPostcode.error.postcode.required"
-    val lengthKey = "whatIsHeadOfficeAddressWithPostcode.error.postcode.length"
+    val requiredKey = "whatIsHeadOfficeAddressUk.error.postcode.required"
+    val lengthKey = "whatIsHeadOfficeAddressUk.error.postcode.length"
     val maxLength = 8
 
     behave like fieldThatBindsValidData(

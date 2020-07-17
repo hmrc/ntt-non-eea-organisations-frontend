@@ -14,14 +14,12 @@
  * limitations under the License.
  */
 
-package pages
+package models
 
-import models.{UkAddress, WhatIsHeadOfficeAddressWithPostcode}
-import play.api.libs.json.JsPath
+import play.api.libs.json._
 
-case object WhatIsHeadOfficeAddressWithPostcodePage extends QuestionPage[UkAddress] {
+case class WhatIsHeadOfficeAddressUk (AddressLineOne: String, AddressLineTwo: String)
 
-  override def path: JsPath = JsPath \ toString
-
-  override def toString: String = "whatIsHeadOfficeAddressWithPostcode"
+object WhatIsHeadOfficeAddressUk {
+  implicit val format = Json.format[WhatIsHeadOfficeAddressUk]
 }

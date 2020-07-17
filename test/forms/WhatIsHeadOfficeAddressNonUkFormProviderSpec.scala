@@ -19,15 +19,15 @@ package forms
 import forms.behaviours.StringFieldBehaviours
 import play.api.data.FormError
 
-class WhatIsHeadOfficeAddressWithCountryPickerFormProviderSpec extends StringFieldBehaviours {
+class WhatIsHeadOfficeAddressNonUkFormProviderSpec extends StringFieldBehaviours {
 
-  val form = new WhatIsHeadOfficeAddressWithCountryPickerFormProvider()()
+  val form = new WhatIsHeadOfficeAddressNonUkFormProvider()()
 
   ".addressLineOne" - {
 
     val fieldName = "addressLineOne"
-    val requiredKey = "whatIsHeadOfficeAddressWithCountryPicker.error.addressLineOne.required"
-    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.addressLineOne.length"
+    val requiredKey = "whatIsHeadOfficeAddressNonUk.error.addressLineOne.required"
+    val lengthKey = "whatIsHeadOfficeAddressNonUk.error.addressLineOne.length"
     val maxLength = 100
 
     behave like fieldThatBindsValidData(
@@ -53,8 +53,8 @@ class WhatIsHeadOfficeAddressWithCountryPickerFormProviderSpec extends StringFie
   ".addressLineTwo" - {
 
     val fieldName = "addressLineTwo"
-    val requiredKey = "whatIsHeadOfficeAddressWithCountryPicker.error.addressLineTwo.required"
-    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.addressLineTwo.length"
+    val requiredKey = "whatIsHeadOfficeAddressNonUk.error.addressLineTwo.required"
+    val lengthKey = "whatIsHeadOfficeAddressNonUk.error.addressLineTwo.length"
     val maxLength = 100
 
     behave like fieldThatBindsValidData(
@@ -81,7 +81,7 @@ class WhatIsHeadOfficeAddressWithCountryPickerFormProviderSpec extends StringFie
 
     val fieldName = "addressLineThree"
 
-    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.addressLineThree.length"
+    val lengthKey = "whatIsHeadOfficeAddressNonUk.error.addressLineThree.length"
     val maxLength = 100
 
     behave like fieldThatBindsValidData(
@@ -102,7 +102,7 @@ class WhatIsHeadOfficeAddressWithCountryPickerFormProviderSpec extends StringFie
 
     val fieldName = "addressLineFour"
 
-    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.addressLineFour.length"
+    val lengthKey = "whatIsHeadOfficeAddressNonUk.error.addressLineFour.length"
     val maxLength = 100
 
     behave like fieldThatBindsValidData(
@@ -122,8 +122,8 @@ class WhatIsHeadOfficeAddressWithCountryPickerFormProviderSpec extends StringFie
   ".country" - {
 
     val fieldName = "country"
-    val requiredKey = "whatIsHeadOfficeAddressWithCountryPicker.error.country.required"
-    val lengthKey = "whatIsHeadOfficeAddressWithCountryPicker.error.country.length"
+    val requiredKey = "whatIsHeadOfficeAddressNonUk.error.country.required"
+    val lengthKey = "whatIsHeadOfficeAddressNonUk.error.country.length"
     val maxLength = 100
 
     behave like fieldThatBindsValidData(

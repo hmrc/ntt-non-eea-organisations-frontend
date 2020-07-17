@@ -34,8 +34,8 @@ trait UserAnswersGenerator extends TryValues {
     arbitrary[(WhenDidTheCompanyBecomePartOfTheTrustPage.type, JsValue)] ::
     arbitrary[(WhatIsTheGoverningCountryPage.type, JsValue)] ::
     arbitrary[(IsTheGoverningCountryKnownPage.type, JsValue)] ::
-    arbitrary[(WhatIsHeadOfficeAddressWithPostcodePage.type, JsValue)] ::
-    arbitrary[(WhatIsHeadOfficeAddressWithCountryPickerPage.type, JsValue)] ::
+    arbitrary[(WhatIsHeadOfficeAddressUkPage.type, JsValue)] ::
+    arbitrary[(WhatIsHeadOfficeAddressNonUkPage.type, JsValue)] ::
     arbitrary[(IsTheHeadOfficeLocationKnownPage.type, JsValue)] ::
     arbitrary[(WhatIsTheCompanyNamePage.type, JsValue)] ::
     arbitrary[(DoNonEEAOrgsHaveControllingInterestPage.type, JsValue)] ::

@@ -19,7 +19,7 @@ package pages
 import models.DoYouWantToAddAnotherNonEEAOrganisation
 import pages.behaviours.PageBehaviours
 
-class DoYouWantToAddAnotherNonEEAOrganisationSpec extends PageBehaviours {
+class DoYouWantToAddAnotherNonEEAOrganisationPageSpec extends PageBehaviours {
 
   "DoYouWantToAddAnotherNonEEAOrganisationPage" - {
 

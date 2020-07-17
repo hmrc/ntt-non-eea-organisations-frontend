@@ -34,15 +34,15 @@ POST       /isTheHeadOfficeLocationKnown                                controll
 GET        /changeIsTheHeadOfficeLocationKnown                          controllers.IsTheHeadOfficeLocationKnownController.onPageLoad(mode: Mode = CheckMode)
 POST       /changeIsTheHeadOfficeLocationKnown                          controllers.IsTheHeadOfficeLocationKnownController.onSubmit(mode: Mode = CheckMode)
 
-GET        /whatIsHeadOfficeAddressNonUk                                controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(mode: Mode = NormalMode)
-POST       /whatIsHeadOfficeAddressNonUk                                controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onSubmit(mode: Mode = NormalMode)
-GET        /changeWhatIsHeadOfficeAddressNonUk                          controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeWhatIsHeadOfficeAddressNonUk                          controllers.WhatIsHeadOfficeAddressWithCountryPickerController.onSubmit(mode: Mode = CheckMode)
+GET        /whatIsHeadOfficeAddressNonUk                                controllers.WhatIsHeadOfficeAddressNonUkController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatIsHeadOfficeAddressNonUk                                controllers.WhatIsHeadOfficeAddressNonUkController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatIsHeadOfficeAddressNonUk                          controllers.WhatIsHeadOfficeAddressNonUkController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatIsHeadOfficeAddressNonUk                          controllers.WhatIsHeadOfficeAddressNonUkController.onSubmit(mode: Mode = CheckMode)
 
-GET        /whatIsHeadOfficeAddressUk                                   controllers.WhatIsHeadOfficeAddressWithPostcodeController.onPageLoad(mode: Mode = NormalMode)
-POST       /whatIsHeadOfficeAddressUk                                   controllers.WhatIsHeadOfficeAddressWithPostcodeController.onSubmit(mode: Mode = NormalMode)
-GET        /changeWhatIsHeadOfficeAddressUk                             controllers.WhatIsHeadOfficeAddressWithPostcodeController.onPageLoad(mode: Mode = CheckMode)
-POST       /changeWhatIsHeadOfficeAddressUk                             controllers.WhatIsHeadOfficeAddressWithPostcodeController.onSubmit(mode: Mode = CheckMode)
+GET        /whatIsHeadOfficeAddressUk                                   controllers.WhatIsHeadOfficeAddressUkController.onPageLoad(mode: Mode = NormalMode)
+POST       /whatIsHeadOfficeAddressUk                                   controllers.WhatIsHeadOfficeAddressUkController.onSubmit(mode: Mode = NormalMode)
+GET        /changeWhatIsHeadOfficeAddressUk                             controllers.WhatIsHeadOfficeAddressUkController.onPageLoad(mode: Mode = CheckMode)
+POST       /changeWhatIsHeadOfficeAddressUk                             controllers.WhatIsHeadOfficeAddressUkController.onSubmit(mode: Mode = CheckMode)
 
 GET        /isTheGoverningCountryKnown                                  controllers.IsTheGoverningCountryKnownController.onPageLoad(mode: Mode = NormalMode)
 POST       /isTheGoverningCountryKnown                                  controllers.IsTheGoverningCountryKnownController.onSubmit(mode: Mode = NormalMode)

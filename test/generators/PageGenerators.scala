@@ -42,11 +42,11 @@ trait PageGenerators {
   implicit lazy val arbitraryIsTheGoverningCountryKnownPage: Arbitrary[IsTheGoverningCountryKnownPage.type] =
     Arbitrary(IsTheGoverningCountryKnownPage)
 
-  implicit lazy val arbitraryWhatIsHeadOfficeAddressWithPostcodePage: Arbitrary[WhatIsHeadOfficeAddressWithPostcodePage.type] =
-    Arbitrary(WhatIsHeadOfficeAddressWithPostcodePage)
+  implicit lazy val arbitraryWhatIsHeadOfficeAddressUkPage: Arbitrary[WhatIsHeadOfficeAddressUkPage.type] =
+    Arbitrary(WhatIsHeadOfficeAddressUkPage)
 
-  implicit lazy val arbitraryWhatIsHeadOfficeAddressWithCountryPickerPage: Arbitrary[WhatIsHeadOfficeAddressWithCountryPickerPage.type] =
-    Arbitrary(WhatIsHeadOfficeAddressWithCountryPickerPage)
+  implicit lazy val arbitraryWhatIsHeadOfficeAddressNonUkPage: Arbitrary[WhatIsHeadOfficeAddressNonUkPage.type] =
+    Arbitrary(WhatIsHeadOfficeAddressNonUkPage)
 
   implicit lazy val arbitraryIsTheHeadOfficeLocationKnownPage: Arbitrary[IsTheHeadOfficeLocationKnownPage.type] =
     Arbitrary(IsTheHeadOfficeLocationKnownPage)
