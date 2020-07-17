@@ -135,7 +135,7 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers, countryService: CountrySe
       )
   }
 
-  def whatIsHeadOfficeAddressWithPostcode: Option[Row] = userAnswers.get(WhatIsHeadOfficeAddressWithPostcodePage) map {
+  def whatIsHeadOfficeAddressUk: Option[Row] = userAnswers.get(WhatIsHeadOfficeAddressWithPostcodePage) map {
     answer =>
       Row(
         key     = Key(msg"whatIsHeadOfficeAddressWithPostcode.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
@@ -150,7 +150,7 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers, countryService: CountrySe
       )
   }
 
-  def whatIsHeadOfficeAddressWithCountryPicker: Option[Row] = userAnswers.get(WhatIsHeadOfficeAddressWithCountryPickerPage) map {
+  def whatIsHeadOfficeAddressNonUk: Option[Row] = userAnswers.get(WhatIsHeadOfficeAddressWithCountryPickerPage) map {
     answer =>
       Row(
         key     = Key(msg"whatIsHeadOfficeAddressWithCountryPicker.checkYourAnswersLabel", classes = Seq("govuk-!-width-one-half")),
