@@ -211,22 +211,20 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers, countryService: CountrySe
   }
 
   private def ukAddress(address: UkAddress): Content = {
-    val result = Seq(address.addressLineOne,
-      address.addressLineTwo,
-      address.addressLineThree.getOrElse(""),
-      address.addressLineFour.getOrElse(""),
-      address.postcode)
-      .mkString(",")
+    val result = s"${address.addressLineOne}, " +
+      s"${address.addressLineTwo}, " +
+      s"${address.addressLineThree.map(s => s"$s, ").getOrElse("")}" +
+      s"${address.addressLineFour.map(s => s"$s, ").getOrElse("")}" +
+      s"${address.postcode}"
 
     lit"$result"
   }
   private def nonUkAddress(address: NonUkAddress): Content = {
-    val result = Seq(address.addressLineOne,
-      address.addressLineTwo,
-      address.addressLineThree.getOrElse(""),
-      address.addressLineFour.getOrElse(""),
-      countryString(address.country))
-      .mkString(",")
+    val result = s"${address.addressLineOne}, " +
+      s"${address.addressLineTwo}, " +
+      s"${address.addressLineThree.map(s => s"$s, ").getOrElse("")}" +
+      s"${address.addressLineFour.map(s => s"$s, ").getOrElse("")}" +
+      s"${countryService.getCountryByCode(address.country).getOrElse("")}"
 
     lit"$result"
   }
