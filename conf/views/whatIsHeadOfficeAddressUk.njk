@@ -1,0 +1,105 @@
+{% extends "includes/layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk"     import govukBackLink %}
+{% from "govuk/components/input/macro.njk"         import govukInput %}
+{% from "govuk/components/button/macro.njk"        import govukButton %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+{% from "govuk/components/fieldset/macro.njk"      import govukFieldset %}
+{% from "macros/title.njk"                         import title %}
+
+{% block pageTitle %}
+  {{ title(messages("whatIsHeadOfficeAddressUk.title"), form.errors) }}
+{% endblock %}
+
+{% block mainContent %}
+
+  {{ govukBackLink({
+    text: messages("site.back")
+  }) }}
+
+  <div class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% if form.errors.length > 0 %}
+          {{ govukErrorSummary({
+            "titleText": messages("error.summary.title"),
+            "errorList": form.errors
+          }) }}
+        {% endif %}
+
+        <form action="{{ routes.controllers.WhatIsHeadOfficeAddressUkController.onSubmit(mode).url }}" method="post">
+
+          {{ csrf() | safe }}
+
+           {% call govukFieldset({
+              legend: {
+                text: messages("whatIsHeadOfficeAddressUk.title"),
+                classes: "govuk-label--xl",
+                isPageHeading: true
+              }
+            }) %}
+
+          {{ govukInput({
+            label: {
+              text: messages('whatIsHeadOfficeAddressUk.addressLineOne')
+            },
+            id: "addressLineOne",
+            name: "addressLineOne",
+            value: form.addressLineOne.value,
+            errorMessage: form.addressLineOne.error
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: messages('whatIsHeadOfficeAddressUk.addressLineTwo')
+            },
+            id: "addressLineTwo",
+            name: "addressLineTwo",
+            value: form.addressLineTwo.value,
+            errorMessage: form.addressLineTwo.error
+          }) }}
+
+        {{ govukInput({
+          label: {
+            text: messages('whatIsHeadOfficeAddressUk.addressLineThree')
+          },
+          id: "addressLineThree",
+          name: "addressLineThree",
+          value: form.addressLineThree.value,
+          errorMessage: form.addressLineThree.error
+        }) }}
+
+         {{ govukInput({
+              label: {
+                text: messages('whatIsHeadOfficeAddressUk.addressLineFour')
+              },
+              id: "addressLineFour",
+              name: "addressLineFour",
+              value: form.addressLineFour.value,
+              errorMessage: form.addressLineFour.error
+            }) }}
+
+         {{ govukInput({
+              label: {
+                text: messages('whatIsHeadOfficeAddressUk.postcode')
+              },
+              id: "postcode",
+              name: "postcode",
+              value: form.postcode.value,
+              errorMessage: form.postcode.error
+            }) }}
+
+          {{ govukButton({
+            text: messages("site.continue")
+          }) }}
+
+          {% endcall %}
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

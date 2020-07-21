@@ -129,3 +129,103 @@ compliant.nine.p2.1=The service was built using parts that were tested by the
 compliant.nine.p2.2=Digital Accessibility Centre
 compliant.nine.p2.3=The full service was tested by HMRC and included disabled users.
 compliant.nine.p3=This page was prepared on [date when it was first published]. It was last updated on [date when it was last updated].
+
+aboutThisSection.title = About this section
+aboutThisSection.heading = About this section
+
+doNonEEAOrgsHaveControllingInterest.title = Does the trust have a controlling interest in any organisations outside of the European Economic area (EEA)?
+doNonEEAOrgsHaveControllingInterest.heading = Does the trust have a controlling interest in any organisations outside of the European Economic area (EEA)?
+doNonEEAOrgsHaveControllingInterest.checkYourAnswersLabel = Does the trust have a controlling interest in any organisations outside of the European Economic area (EEA)?
+doNonEEAOrgsHaveControllingInterest.error.required = Select yes if the trust has a controlling interest in any organisations outside of the European Economic area (EEA)
+
+whatIsTheCompanyName.title = What is the company name?
+whatIsTheCompanyName.heading = What is the company name?
+whatIsTheCompanyName.checkYourAnswersLabel = What is the company name?
+whatIsTheCompanyName.error.required = Enter the company name
+whatIsTheCompanyName.error.length = Company name must be 100 characters or less
+
+isTheHeadOfficeLocationKnown.title = Is the head office location known?
+isTheHeadOfficeLocationKnown.heading = Is the head office location known?
+isTheHeadOfficeLocationKnown.checkYourAnswersLabel = Is the head office location known?
+isTheHeadOfficeLocationKnown.error.required = Select yes if the head office location is known
+
+whatIsHeadOfficeAddressNonUk.title = What is the head office address?
+whatIsHeadOfficeAddressNonUk.heading = What is the head office address?
+whatIsHeadOfficeAddressNonUk.addressLineOne = Address Line 1
+whatIsHeadOfficeAddressNonUk.addressLineTwo = Address Line 2
+whatIsHeadOfficeAddressNonUk.addressLineThree = Address Line 3 (Optional)
+whatIsHeadOfficeAddressNonUk.addressLineFour = Address Line 4 (Optional)
+whatIsHeadOfficeAddressNonUk.country = Country
+whatIsHeadOfficeAddressNonUk.checkYourAnswersLabel = What is the head office address?
+whatIsHeadOfficeAddressNonUk.error.addressLineOne.required = Enter Address Line 1
+whatIsHeadOfficeAddressNonUk.error.addressLineOne.length = Address Line 1 must be 100 characters or less
+whatIsHeadOfficeAddressNonUk.error.addressLineTwo.required = Enter Address Line 2
+whatIsHeadOfficeAddressNonUk.error.addressLineTwo.length = Address Line 2 must be 100 characters or less
+whatIsHeadOfficeAddressNonUk.error.addressLineThree.length = Address Line 3 must be 100 characters or less
+whatIsHeadOfficeAddressNonUk.error.addressLineFour.length = Address Line 4 must be 100 characters or less
+whatIsHeadOfficeAddressNonUk.error.country.required = Enter head office location
+whatIsHeadOfficeAddressNonUk.error.country.length = Head office location must be 100 characters or less
+
+whatIsHeadOfficeAddressUk.title = What is the head office address?
+whatIsHeadOfficeAddressUk.heading = What is the head office address?
+whatIsHeadOfficeAddressUk.addressLineOne = Address Line 1
+whatIsHeadOfficeAddressUk.addressLineTwo = Address Line 2
+whatIsHeadOfficeAddressUk.addressLineThree = Address Line 3 (Optional)
+whatIsHeadOfficeAddressUk.addressLineFour = Address Line 4 (Optional)
+whatIsHeadOfficeAddressUk.postcode = Postcode
+whatIsHeadOfficeAddressUk.checkYourAnswersLabel = What is the head office address?
+whatIsHeadOfficeAddressUk.error.addressLineOne.required = Enter Address Line 1
+whatIsHeadOfficeAddressUk.error.addressLineOne.length = Address Line 1 must be 100 characters or less
+whatIsHeadOfficeAddressUk.error.addressLineTwo.required = Enter Address Line 2
+whatIsHeadOfficeAddressUk.error.addressLineTwo.length = Address Line 2 must be 100 characters or less
+whatIsHeadOfficeAddressUk.error.addressLineThree.length = Address Line 3 must be 100 characters or less
+whatIsHeadOfficeAddressUk.error.addressLineFour.length = Address Line 4 must be 100 characters or less
+whatIsHeadOfficeAddressUk.error.postcode.required = Enter Postcode
+whatIsHeadOfficeAddressUk.error.postcode.length = Postcode must be 8 characters or less
+
+isTheGoverningCountryKnown.title = Is the governing country/territory known?
+isTheGoverningCountryKnown.heading = Is the governing country/territory known?
+isTheGoverningCountryKnown.checkYourAnswersLabel = Is the governing country/territory known?
+isTheGoverningCountryKnown.error.required = Select yes if governing country/territory is known
+
+whatIsTheGoverningCountry.title = What is the governing country/territory?
+whatIsTheGoverningCountry.heading = What is the governing country/territory?
+whatIsTheGoverningCountry.checkYourAnswersLabel = What is the governing country/territory?
+whatIsTheGoverningCountry.error.required = Enter the governing country/territory
+whatIsTheGoverningCountry.error.length = The governing country/territory must be 100 characters or less
+
+whenDidTheCompanyBecomePartOfTheTrust.title = When did the company become part of the trust?
+whenDidTheCompanyBecomePartOfTheTrust.heading = When did the company become part of the trust?
+whenDidTheCompanyBecomePartOfTheTrust.hint = For example, 12 11 2007
+whenDidTheCompanyBecomePartOfTheTrust.checkYourAnswersLabel = When did the company become part of the trust?
+whenDidTheCompanyBecomePartOfTheTrust.error.required.all = Enter when the company became part of the trust
+whenDidTheCompanyBecomePartOfTheTrust.error.required.two = The date the company joined must include {0} and {1}
+whenDidTheCompanyBecomePartOfTheTrust.error.required = The date the company joined must include {0}
+whenDidTheCompanyBecomePartOfTheTrust.error.invalid = Enter a real date for when the company joined the trust
+
+isTheCompanyStillPartOfTheTrust.title = Is the company still part of the trust?
+isTheCompanyStillPartOfTheTrust.heading = Is the company still part of the trust?
+isTheCompanyStillPartOfTheTrust.checkYourAnswersLabel = Is the company still part of the trust?
+isTheCompanyStillPartOfTheTrust.error.required = Select yes if the company is still part of the trust
+
+whenDidTheCompanyLeaveTheTrust.title = When did the company leave the trust?
+whenDidTheCompanyLeaveTheTrust.heading = When did the company leave the trust?
+whenDidTheCompanyLeaveTheTrust.hint = For example, 12 11 2007
+whenDidTheCompanyLeaveTheTrust.checkYourAnswersLabel = When did the company leave the trust?
+whenDidTheCompanyLeaveTheTrust.error.required.all = Enter when the company left the trust
+whenDidTheCompanyLeaveTheTrust.error.required.two = The date provided for the company leaving the trust must include {0} and {1}
+whenDidTheCompanyLeaveTheTrust.error.required = The date provided for the company leaving the trust must include {0}
+whenDidTheCompanyLeaveTheTrust.error.invalid = Enter a real date
+
+isHeadOfficeInUK.title = Is head office in the UK?
+isHeadOfficeInUK.heading = Is head office in the UK?
+isHeadOfficeInUK.checkYourAnswersLabel = Is head office in the UK?
+isHeadOfficeInUK.error.required = Select yes if the head office is in the UK
+
+doYouWantToAddAnotherNonEEAOrganisation.title = Do you want to add another Non-EEA organisation?
+doYouWantToAddAnotherNonEEAOrganisation.heading = Do you want to add another Non-EEA organisation?
+doYouWantToAddAnotherNonEEAOrganisation.yesIWantToAddThemNow = Yes I want to add them now
+doYouWantToAddAnotherNonEEAOrganisation.yesIWantToAddThemLater = Yes I want to add them later
+doYouWantToAddAnotherNonEEAOrganisation.noIHaveAddedAllNonEEAOrgs = No I have added all all non EEA organisations
+doYouWantToAddAnotherNonEEAOrganisation.checkYourAnswersLabel = Do you want to add another Non-EEA organisation?
+doYouWantToAddAnotherNonEEAOrganisation.error.required = Select if you want to add another Non-EEA organisation

@@ -1,0 +1,33 @@
+{% extends "includes/layout.njk" %}
+{% from "govuk/components/button/macro.njk"        import govukButton %}
+
+{% from "macros/title.njk"                         import title %}
+
+{% block pageTitle %}
+  {{ title(messages("aboutThisSection.title")) }}
+{% endblock %}
+
+{% block mainContent %}
+
+  <div class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">
+          {{ messages("aboutThisSection.heading") }}
+        </h1>
+
+       <form action="{{routes.controllers.AboutThisSectionContoller.onSubmit.url}}" method="post">
+
+            {{ csrf() | safe }}
+
+            {{ govukButton({
+                text: messages("site.continue")
+            }) }}
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
